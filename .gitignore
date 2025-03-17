@@ -1,0 +1,54 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore compiled files
+*.class
+*.out
+*.o
+*.exe
+*.dll
+
+# Ignore virtual environment
+venv/
+.env/
+env/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build and dependencies
+node_modules/
+dist/
+build/
+
+# Ignore dataset or input files
+*.csv
+*.json
+*.xml
+*.xlsx
+data/
+input/
+
+# Ignore result/output files
+output/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Ignore compressed files
+*.zip
+*.tar
+*.tar.gz
+*.rar

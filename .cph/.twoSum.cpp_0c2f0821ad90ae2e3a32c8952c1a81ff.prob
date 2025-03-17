@@ -1,0 +1,1 @@
+{"name":"Local: twoSum","url":"c:\\Users\\Himanshu-Singh\\OneDrive\\Desktop\\DSA\\twoSum.cpp","tests":[{"id":1739889287788,"input":"1\n5\n1 2 3 4 5\n3","output":"0 1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Himanshu-Singh\\OneDrive\\Desktop\\DSA\\twoSum.cpp","group":"local","local":true}
