@@ -5,24 +5,16 @@ typedef long long ll;
 
 void remove_duplicates(vector<int> &vect)
 {
-    int n = vect.size();
-
-    int i = 0, low = 0, mid = 1;
-
-    while (mid < n)
+    int n = vect.size(), index = 1;
+    for (int i = 1; i < n; i++)
     {
-        if (vect[mid] > vect[i])
+        if (vect[i] != vect[i - 1])
         {
-            vect[low + 1] = vect[mid];
-            low++;
-            mid++;
-            i++;
+            vect[index] = vect[i];
+            index++;
         }
-
-        else
-            mid++;
     }
-    for (int i = 0; i <= low; i++)
+    for (int i = 0; i <= index; i++)
     {
         cout << vect[i] << " ";
     }
@@ -33,7 +25,7 @@ void remove_duplicates(vector<int> &vect)
 
 int main()
 {
-    vector<int> v = {0,0,1,1, 2, 2, 3, 4, 4, 5, 6};
+    vector<int> v = {0, 0, 1, 1, 2, 2, 3, 4, 4, 5, 6};
     remove_duplicates(v);
 
     return 0;
