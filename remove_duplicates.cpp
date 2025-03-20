@@ -3,69 +3,38 @@ using namespace std;
 typedef long long ll;
 #define endl "\n"
 
-vector<int> remove_target(vector<int> &nums, int target)
+void remove_duplicates(vector<int> &vect)
 {
-    int n = nums.size();
-    auto it = find(nums.begin(), nums.end(), target); // t.c = o(n)
-    int index = -1;
+    int n = vect.size();
 
-    if (it != nums.end())
-        index = distance(nums.begin(), it);
+    int i = 0, low = 0, mid = 1;
 
-    if (index == -1)
-        return nums;
-
-    for (int i = index; i < n; i++)
+    while (mid < n)
     {
-        if (nums[i] != nums[index])
+        if (vect[mid] > vect[i])
         {
-            nums[index] = nums[i];
-            index++;
+            vect[low + 1] = vect[mid];
+            low++;
+            mid++;
+            i++;
         }
+
+        else
+            mid++;
     }
-    return nums;
-}
-
-// above code works for sorted vector  , early stage logic
-
-vector<int> remove_target1(vector<int> &nums, int target)
-{
-    int n = nums.size();
-    int index = 0;
-
-    for (int i = 0; i < n; i++) // T.C = O(n)
+    for (int i = 0; i <= low; i++)
     {
-        if (nums[i] != target)
-        {
-            nums[index] = nums[i];
-            index++;
-        }
+        cout << vect[i] << " ";
     }
-    nums.resize(index);
-    return nums;
 }
-
-// it works for all
+// Inplace algorithm
+// T.c = O(n)
+// S.c = O(1)
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
-    int t;
-    cin >> t;
-
-    vector<int> v1 = remove_target1(v, t);
-
-    for (auto el : v1)
-    {
-        cout << el << " " << endl;
-    }
+    vector<int> v = {0,0,1,1, 2, 2, 3, 4, 4, 5, 6};
+    remove_duplicates(v);
 
     return 0;
 }
