@@ -7,9 +7,14 @@ vector<int> rotate(vector<int> &nums, int k)
 {
     int n = nums.size();
     reverse(nums.begin(), nums.end());
-    reverse(nums.begin() + k, nums.end());  // T.c = O(n)
+    reverse(nums.begin() + k, nums.end()); // T.c = O(n)
 
     return nums;
+}
+
+vector<int> rotatenewtype(vector<int> &nums, int k)
+{
+    while ()
 }
 
 int main()
