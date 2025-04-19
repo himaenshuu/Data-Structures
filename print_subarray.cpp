@@ -63,6 +63,7 @@ int main()
     {
         cin >> vect[i];
     }
+    
 
     vector<int> v = printsubarray(vect);
     for (int i = 0; i < v.size(); i++)
