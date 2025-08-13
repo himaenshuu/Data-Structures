@@ -7,11 +7,11 @@ typedef long long ll;
 class Solution
 {
 public:
-    int fun(vector<int> &heights, int k)
+    int fun1(vector<int> &heights, int k)
     {
         int n = heights.size();
 
-        vector<int> dp(n, -1);
+        vector<int> dp(n, INT_MAX);
         dp[0] = 0;
 
         for (int i = 1; i < n; i++)
@@ -21,7 +21,6 @@ public:
                 dp[i] = min(dp[i], dp[i - j] + abs(heights[i] - heights[i - j]));
             }
         }
-
         return dp[n - 1];
     }
 };
@@ -40,7 +39,7 @@ int main()
     int k;
     cin >> k;
     Solution obj;
-    cout << obj.fun(v, k) << endl;
+    cout << obj.fun1(v, k) << endl;
 
     return 0;
 }
