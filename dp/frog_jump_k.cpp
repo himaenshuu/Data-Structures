@@ -7,10 +7,9 @@ typedef long long ll;
 class Solution
 {
 public:
-    int fun1(vector<int> &heights, int k)
+    int fun(vector<int> &heights, int k)
     {
         int n = heights.size();
-
         vector<int> dp(n, INT_MAX);
         dp[0] = 0;
 
@@ -24,6 +23,8 @@ public:
         return dp[n - 1];
     }
 };
+
+// TC = O(n*k) SC = O(n)
 
 int main()
 {
@@ -39,7 +40,7 @@ int main()
     int k;
     cin >> k;
     Solution obj;
-    cout << obj.fun1(v, k) << endl;
+    cout << obj.fun(v, k) << endl;
 
     return 0;
 }
