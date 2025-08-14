@@ -2,14 +2,13 @@
 using namespace std;
 typedef long long ll;
 #define endl "\n"
-
 class Solution
 {
 public:
     int fun(vector<int> &arr)
     {
         int n = arr.size();
-        if (n <= 0)
+        if (n <= 1)
             return arr[0];
 
         vector<int> dp(n, -1);
@@ -25,27 +24,27 @@ public:
 
         return dp[n - 1];
     }
-
-    int fun2(vector<int> &arr2)
-    {
-        int n = arr2.size();
-        if (n < -0)
-        {
-            return arr[0];
-        }
-
-        vector<int> dp(n, -1);
-        dp[0] = arr[0];
-        dp[i] = max(arr[0], arr[i]);
-
-        for (int i = 0; i < n; i++)
-        {
-            dp[i] = max(arr[i] + dp[i - 2], dp[i - 1]);
-        }
-
-        return dp[n - 2]; // return the second last element of dp array
-    }
 };
+
+
+// space optimized O(1)
+int maxNonAdjacentSum(vector<int> &arr)
+{
+    int n = arr.size();
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return arr[0];
+
+    int prev2 = arr[0], prev1 = max(arr[0], arr[1]);
+    for (int i = 2; i < n; i++)
+    {
+        int curr = max(arr[i] + prev2, prev1);
+        prev2 = prev1;
+        prev1 = curr;
+    }
+    return prev1;
+}
 
 int main()
 {

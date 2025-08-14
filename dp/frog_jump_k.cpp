@@ -19,7 +19,7 @@ public:
             {
                 dp[i] = min(dp[i], dp[i - j] + abs(heights[i] - heights[i - j]));
             }
-        }
+        }        
         return dp[n - 1];
     }
 };
