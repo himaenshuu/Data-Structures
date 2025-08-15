@@ -3,6 +3,8 @@ using namespace std;
 typedef long long ll;
 #define endl "\n"
 
+//memoization
+
 class Solution
 {
 public:
@@ -47,3 +49,4 @@ int main()
 
     return 0;
 }
+
