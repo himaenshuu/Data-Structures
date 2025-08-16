@@ -15,22 +15,89 @@
         margin-bottom: 20px;
         font-size: 16px;
       }
-      button {
-        padding: 10px 20px;
-        font-size: 18px;
+      button,
+      select {
+        padding: 10px 14px;
+        font-size: 16px;
         cursor: pointer;
+      }
+      .row {
+        margin-bottom: 14px;
       }
     </style>
   </head>
   <body>
     <h1>Text to Speech Converter</h1>
-    <textarea id="textInput" placeholder="Enter text here..."></textarea><br />
-    <button onclick="speakText()">Speak</button>
+    <div class="row">
+      <textarea id="textInput" placeholder="Enter text here..."></textarea>
+    </div>
+    <div class="row">
+      <label for="voiceSelect">Voice:</label>
+      <select id="voiceSelect"></select>
+      <label for="rateRange">Speed:</label>
+      <input
+        id="rateRange"
+        type="range"
+        min="0.5"
+        max="1.2"
+        step="0.05"
+        value="0.8"
+      />
+      <span id="rateVal">0.8</span>
+    </div>
+    <div class="row">
+      <button onclick="speakText()">Speak</button>
+      <button onclick="speechSynthesis.cancel()">Stop</button>
+    </div>
 
     <script>
+      const voiceSelect = document.getElementById("voiceSelect");
+      const rateRange = document.getElementById("rateRange");
+      const rateVal = document.getElementById("rateVal");
+      let voices = [];
+
+      function loadVoices() {
+        voices = speechSynthesis
+          .getVoices()
+          .filter((v) => v.lang.startsWith("en"));
+        voiceSelect.innerHTML = "";
+        voices.forEach((v, i) => {
+          const opt = document.createElement("option");
+          opt.value = i;
+          opt.textContent = `${v.name} (${v.lang})${v.default ? " *" : ""}`;
+          voiceSelect.appendChild(opt);
+        });
+        // Try pick a more natural voice if present
+        const preferred = voices.findIndex((v) =>
+          /Google UK English Female|Microsoft (.+) Online \(Natural\)/i.test(
+            v.name
+          )
+        );
+        if (preferred >= 0) voiceSelect.value = preferred;
+      }
+
+      speechSynthesis.onvoiceschanged = loadVoices;
+      // Fallback (some browsers fire voiceschanged before script runs)
+      loadVoices();
+
+      rateRange.addEventListener(
+        "input",
+        () => (rateVal.textContent = rateRange.value)
+      );
+
       function speakText() {
-        const text = document.getElementById("textInput").value;
+        const text = document.getElementById("textInput").value.trim();
+        if (!text) return;
+        speechSynthesis.cancel(); // stop any current speech
         const utterance = new SpeechSynthesisUtterance(text);
+        // Slow, natural settings
+        utterance.rate = parseFloat(rateRange.value); // default slow ~0.8
+        utterance.pitch = 1.0; // neutral
+        utterance.volume = 1.0;
+
+        const idx = parseInt(voiceSelect.value, 10);
+        if (voices[idx]) utterance.voice = voices[idx];
+
         speechSynthesis.speak(utterance);
       }
     </script>
