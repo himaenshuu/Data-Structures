@@ -1,4 +1,50 @@
-// move zeroes to right end
+/*
+================================================================================
+LeetCode #283 - Move Zeroes
+================================================================================
+
+DIFFICULTY: Easy ⭐
+
+COMPANIES ASKED:
+- Amazon
+- Microsoft
+- Facebook
+- Google
+- Apple
+- Bloomberg
+- Adobe
+- Uber
+- Goldman Sachs
+
+PROBLEM STATEMENT:
+Given an integer array nums, move all 0's to the end while maintaining the
+relative order of non-zero elements. Must do this in-place without making
+a copy of the array.
+
+CONSTRAINTS:
+- 1 <= nums.length <= 10^4
+- -2^31 <= nums[i] <= 2^31 - 1
+
+EXAMPLE 1:
+Input: nums = [0,1,0,3,12]
+Output: [1,3,12,0,0]
+
+EXAMPLE 2:
+Input: nums = [0]
+Output: [0]
+
+APPROACH 1: Extra Space (moveZeros)
+- Store non-zero elements in new array
+- Append zeros at end
+- Time: O(n), Space: O(n)
+
+APPROACH 2: Two-Pointer (moveZeros1) ⭐ OPTIMAL
+- Find first zero position (j)
+- Swap non-zero elements with position j
+- Time: O(n), Space: O(1)
+
+================================================================================
+*/
 
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,6 +1,53 @@
 /*
-Problem Statement : The weight of N items and their corresponding values are given.We have to put these items in a knapsack of weight W such that the total value obtained is maximized.
-We are using greedy approach to solve this problem.
+================================================================================
+Fractional Knapsack Problem (Greedy Approach)
+================================================================================
+
+DIFFICULTY: Medium ⭐⭐
+
+COMPANIES ASKED:
+- Amazon
+- Microsoft
+- Google
+- Adobe
+- Samsung
+- Flipkart
+- Paytm
+
+PROBLEM STATEMENT:
+The weight of N items and their corresponding values are given. We have to put
+these items in a knapsack of weight W such that the total value obtained is
+maximized. We can take fractions of items.
+
+CONSTRAINTS:
+- 1 <= N <= 10^5
+- 1 <= W <= 10^9
+- 1 <= value[i], weight[i] <= 10^4
+
+EXAMPLE:
+Input: N = 3, W = 50
+value[] = {60, 100, 120}
+weight[] = {10, 20, 30}
+Output: 240.00
+Explanation: Take full items 2 and 3, and 2/3 of item 1
+Total = 100 + 120 + (2/3)*60 = 240
+
+GREEDY APPROACH:
+1. Calculate value/weight ratio for all items
+2. Sort items by ratio in descending order
+3. Pick items with highest ratio first
+4. Take fractions if needed for remaining capacity
+
+WHY GREEDY WORKS:
+For fractional knapsack, taking items with highest value-to-weight ratio
+always gives optimal solution.
+
+APPROACH 1 (maxValue): Bubble sort - O(n²)
+APPROACH 2 (maxValue2): Built-in sort - O(n log n) ⭐ OPTIMAL
+
+NOTE: For 0/1 Knapsack (no fractions), use Dynamic Programming!
+
+================================================================================
 */
 
 #include <bits/stdc++.h>
@@ -62,8 +109,6 @@ int maxValue2(vector<int> &value, vector<int> &weight, int w)
         value[i] = items[i].first;
         weight[i] = items[i].second;
     }
-
-
 
     int val = 0;
     for (int i = 0; i < n; i++)

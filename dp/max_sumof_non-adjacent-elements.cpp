@@ -1,3 +1,58 @@
+/*
+================================================================================
+LeetCode #198 - House Robber (Maximum Sum of Non-Adjacent Elements)
+================================================================================
+
+DIFFICULTY: Medium ⭐⭐
+
+COMPANIES ASKED:
+- Amazon
+- Microsoft
+- Google
+- Facebook
+- Apple
+- Adobe
+- Bloomberg
+- LinkedIn
+- Uber
+- Goldman Sachs
+
+PROBLEM STATEMENT:
+You are a robber planning to rob houses along a street. Each house has a
+certain amount of money. Adjacent houses have security systems that will alert
+police if two adjacent houses are broken into on the same night.
+
+Find the maximum amount of money you can rob without alerting the police.
+
+CONSTRAINTS:
+- 1 <= nums.length <= 100
+- 0 <= nums[i] <= 400
+
+EXAMPLE 1:
+Input: nums = [1,2,3,1]
+Output: 4
+Explanation: Rob house 1 (1) and house 3 (3). Total = 1 + 3 = 4
+
+EXAMPLE 2:
+Input: nums = [2,7,9,3,1]
+Output: 12
+Explanation: Rob house 1 (2), house 3 (9), and house 5 (1). Total = 2 + 9 + 1 = 12
+
+DYNAMIC PROGRAMMING APPROACH:
+- dp[i] = maximum sum possible up to index i
+- dp[0] = arr[0]
+- dp[1] = max(arr[0], arr[1])
+- dp[i] = max(arr[i] + dp[i-2], dp[i-1])
+  (either take current + skip adjacent, or skip current)
+
+APPROACH 1 (fun): O(n) time, O(n) space
+APPROACH 2 (maxNonAdjacentSum): O(n) time, O(1) space ⭐ OPTIMAL
+
+Space optimization using prev2, prev1 instead of array!
+
+================================================================================
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -25,7 +80,6 @@ public:
         return dp[n - 1];
     }
 };
-
 
 // space optimized O(1)
 int maxNonAdjacentSum(vector<int> &arr)

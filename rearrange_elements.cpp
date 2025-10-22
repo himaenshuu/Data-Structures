@@ -1,4 +1,41 @@
-// Rearrange elements by sign such that it occurs in an alternate order
+/*
+================================================================================
+LeetCode #2149 - Rearrange Array Elements by Sign
+================================================================================
+
+DIFFICULTY: Medium ⭐⭐
+
+COMPANIES ASKED:
+- Amazon
+- Microsoft
+- Google
+- Adobe
+- Samsung
+- Oracle
+
+PROBLEM STATEMENT:
+Rearrange elements by sign such that they occur in an alternate order.
+Given an array with equal number of positive and negative integers, rearrange
+the array such that positive and negative numbers alternate.
+
+CONSTRAINTS:
+- Array has equal number of positive and negative elements
+- First element should be positive
+- Maintain relative order of positive and negative numbers
+
+EXAMPLE:
+Input: [1, -2, -3, 4]
+Output: [1, -2, 4, -3]
+Explanation: Positive numbers at even indices, negative at odd indices
+
+APPROACH: Two-Pass Method
+- First pass: Place all positive numbers at even indices (0, 2, 4...)
+- Second pass: Place all negative numbers at odd indices (1, 3, 5...)
+- Time Complexity: O(n)
+- Space Complexity: O(n) for result array
+
+================================================================================
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -31,6 +68,7 @@ vector<int> rearrange(const vector<int> &vect)
 
     return v;
 }
+
 
 int main()
 {

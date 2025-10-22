@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long ll;
 #define endl "\n"
-
 struct Node
 {
     int data;
@@ -80,3 +79,4 @@ int main()
 
     return 0;
 }
+

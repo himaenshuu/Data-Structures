@@ -1,9 +1,61 @@
+/*
+================================================================================
+LeetCode #62 - Unique Paths (Dynamic Programming)
+================================================================================
+
+DIFFICULTY: Medium ⭐⭐
+
+COMPANIES ASKED:
+- Amazon
+- Microsoft
+- Google
+- Facebook
+- Apple
+- Adobe
+- Bloomberg
+- Goldman Sachs
+- Uber
+
+PROBLEM STATEMENT:
+A robot is located at top-left corner of m x n grid. The robot can only move
+down or right at any point. Find the number of unique paths to reach the
+bottom-right corner.
+
+CONSTRAINTS:
+- 1 <= m, n <= 100
+
+EXAMPLE 1:
+Input: m = 3, n = 2
+Output: 3
+Explanation: From top-left to bottom-right, there are 3 unique paths
+
+EXAMPLE 2:
+Input: m = 3, n = 7
+Output: 28
+
+DYNAMIC PROGRAMMING APPROACH (Memoization):
+- Base case: dp[0][0] = 1 (one way to stay at start)
+- Out of bounds: return 0
+- Recursive: dp[i][j] = dp[i-1][j] + dp[i][j-1]
+  (paths from top + paths from left)
+
+TIME COMPLEXITY: O(m * n)
+SPACE COMPLEXITY: O(m * n) for dp array
+
+ALTERNATIVE APPROACHES:
+1. Tabulation: O(m*n) time, O(m*n) space
+2. Space Optimized: O(m*n) time, O(n) space
+3. Mathematical: O(m+n) time, O(1) space using combinations
+
+================================================================================
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 #define endl "\n"
 
-//memoization
+// memoization
 
 class Solution
 {
@@ -49,4 +101,3 @@ int main()
 
     return 0;
 }
-
