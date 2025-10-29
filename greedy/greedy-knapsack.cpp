@@ -13,7 +13,7 @@ COMPANIES ASKED:
 - Samsung
 - Flipkart
 - Paytm
-
+ 
 PROBLEM STATEMENT:
 The weight of N items and their corresponding values are given. We have to put
 these items in a knapsack of weight W such that the total value obtained is
@@ -55,7 +55,7 @@ using namespace std;
 typedef long long ll;
 #define endl "\n"
 #define fd(a, b) float(a / b)
-
+ 
 int maxValue(vector<int> &value, vector<int> &weight, int w)
 {
     int n = value.size();

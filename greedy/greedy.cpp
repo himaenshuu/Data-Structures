@@ -59,16 +59,16 @@ void print(vector<int> v)
     }
 }
 
-int minChild(vector<int> value, vector<int> v2) // O(n logn)
+int minChild(vector<int> greedValue, vector<int> cookieSizes) // O(n logn)
 {
-    sort(value.begin(), value.end());
-    sort(v2.begin(), v2.end());
+    sort(greedValue.begin(), greedValue.end());
+    sort(cookieSizes.begin(), cookieSizes.end());
 
     int j = 0;
     int count = 0;
-    for (int i = 0; i < v2.size(), j < value.size(); i++)
+    for (int i = 0; i < cookieSizes.size(), j < greedValue.size(); i++)
     {
-        if (v2[i] >= value[j])
+        if (cookieSizes[i] >= greedValue[j])
         {
             j++;
             count++;
@@ -98,3 +98,5 @@ int main()
 
     return 0;
 }
+
+// Reference: ../GREEDY_VS_DP_GUIDE.md
