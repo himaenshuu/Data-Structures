@@ -40,3 +40,16 @@ int main()
         }
     }
 }
+
+/*
+When DFS is useful
+
+• Detecting cycles
+• Connected components
+• Solving mazes
+• Topological sorting
+• Path finding in trees
+• Backtracking problems (N-Queens, Sudoku solver)
+
+DFS is conceptually simple but extremely powerful in algorithm design.
+*/

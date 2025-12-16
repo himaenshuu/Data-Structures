@@ -42,3 +42,17 @@ int main()
 
     bfs(0);
 }
+
+/*
+Use Cases-
+BFS is the correct tool when you need:
+
+Shortest path in an unweighted graph
+Levels of a graph or tree
+Checking connectivity
+
+Solving problems like:
+Knight moves on a chessboard
+Minimum operations to reach X from Y
+Social network “degrees of separation”
+*/
