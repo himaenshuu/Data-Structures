@@ -8,7 +8,6 @@ class DSU
 public:
     std::vector<int> parent;
     std::vector<int> max_val;
-
     DSU(const std::vector<int> &nums)
     {
         int n = nums.size();
