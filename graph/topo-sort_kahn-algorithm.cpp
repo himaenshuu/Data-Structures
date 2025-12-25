@@ -3,7 +3,6 @@ using namespace std;
 #include "../utilities.h"
 typedef long long ll;
 #define endl "\n"
-
 class Solution
 {
 public:
@@ -97,5 +96,5 @@ int main()
     return 0;
 }
 
-// Note :- The answer is printing one of the topo order only, it can be many.
+// Note:- The answer is printing one of the topo order only, it can be many.
 // We follow same approach for the problem: Cycle detection in directed graph
