@@ -96,26 +96,21 @@ int maxvalue(vector<int> &arr)
 
 int maxvalue1(vector<int> &arr)
 {
-    int max = INT_MIN;
+    int maximum = INT_MIN;
     int size = arr.size();
     int sum = 0;
     for (int i = 0; i < size; i++)
     {
-        sum += arr[i];
-        if (sum < max)
-            sum = 0;
-        max = (sum > max) ? sum : max;
+        sum = max(arr[i], arr[i] + sum);
+        maximum = max(maximum, sum);
     }
-
-    return max > 0 ? max : 0;
+    return maximum;
 }
-
 // T.c = O(n) S.C = O(1)
 
 int main()
 {
-    vi v = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-    cout << maxvalue(v) << endl;
+    vi v = {-2, -1, -3};
+    cout << maxvalue1(v) << endl;
     return 0;
 }
-
