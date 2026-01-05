@@ -39,7 +39,7 @@ DSA_CP_Solutions/
 
 1. 📥 Clone the repository:
    ```sh
-   git clone https://github.com/your-username/DSA_CP_Solutions.git
+   git clone https://github.com/himaenshuu/DSA_CP_Solutions.git
    ```
 2. 📍 Navigate to the required topic and ▶️ run the solution file.
 
