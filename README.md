@@ -33,7 +33,6 @@ DSA_CP_Solutions/
 - 🖥️ C++
 - 🐍 Python
 - ☕ Java
-- 🔤 Other languages as needed
 
 ## 🔥 How to Use 📥🛠️📜
 
