@@ -31,7 +31,7 @@ DSA_CP_Solutions/
 ## 🛠 Technologies Used 💻🔧⚙️
 
 - 🖥️ C++
-
+-    Java
 ## 🔥 How to Use 📥🛠️📜
 
 1. 📥 Clone the repository:
@@ -40,7 +40,7 @@ DSA_CP_Solutions/
    ```
 2. 📍 Navigate to the required topic and ▶️ run the solution file.
 
-## 🤝 Contributions 🎉📌💡
+## 🤝 Contributions 🎉📌
 
 Contributions are welcome! 🎊 Feel free to ➕ add solutions, ⚡ optimize existing ones, or 📖 improve documentation.
 
