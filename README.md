@@ -12,8 +12,9 @@ DSA_CP_Solutions/
 │-- 📜 Algorithms/        # Implementations of various algorithms
 │-- 🎯 CP_Problems/       # Solutions to CP problems from various platforms
 │-- 📖 Notes/             # Explanations, concepts, and tricks for DSA & CP
-|==    Blind 75/          # Striver sheet blind 75
+|-- 📜 Blind 75/          # Striver sheet blind 75
 │-- 📜 README.md          # This file
+|-- 📜 Striver sheet
 ```
 
 ## 🚀 Features 🔥🌟🎯
