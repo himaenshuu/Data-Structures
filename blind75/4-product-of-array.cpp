@@ -1,4 +1,4 @@
-// product of array except self problem no - 238
+// product of array except self, problem no - 238
 
 #include <bits/stdc++.h>
 #include "utilities.h"

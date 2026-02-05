@@ -1,6 +1,6 @@
 /*
 ================================================================================
-LeetCode #198 - House Robber (Maximum Sum of Non-Adjacent Elements)
+LeetCode #198 - House Robber OR Maximum Sum of Non-Adjacent Elements
 ================================================================================
 
 DIFFICULTY: Medium ⭐⭐
@@ -22,7 +22,13 @@ You are a robber planning to rob houses along a street. Each house has a
 certain amount of money. Adjacent houses have security systems that will alert
 police if two adjacent houses are broken into on the same night.
 
-Find the maximum amount of money you can rob without alerting the police.
+Given an integer array nums representing the amount of money of each house,
+return the maximum amount of money you can rob tonight without alerting the police.
+
+OR
+
+Given an array of integers, find the maximum sum of non-adjacent elements.
+You cannot select two consecutive elements.
 
 CONSTRAINTS:
 - 1 <= nums.length <= 100
@@ -43,7 +49,7 @@ DYNAMIC PROGRAMMING APPROACH:
 - dp[0] = arr[0]
 - dp[1] = max(arr[0], arr[1])
 - dp[i] = max(arr[i] + dp[i-2], dp[i-1])
-  (either take current + skip adjacent, or skip current)
+  (either take current + skip adjacent, OR skip current)
 
 APPROACH 1 (fun): O(n) time, O(n) space
 APPROACH 2 (maxNonAdjacentSum): O(n) time, O(1) space ⭐ OPTIMAL

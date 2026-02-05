@@ -17,6 +17,7 @@ public:
                 indegree[it]++;
             }
         }
+
         // push nodes with indegree 0
         queue<int> q;
         for (int i = 0; i < V; i++)
@@ -27,6 +28,7 @@ public:
             }
         }
         vector<int> topo;
+
         // remove indegree of neighbour
         while (!q.empty())
         {

@@ -69,7 +69,6 @@ vector<int> rearrange(const vector<int> &vect)
     return v;
 }
 
-
 int main()
 {
     vector<int> v = rearrange({1, -2, -3, 4});

@@ -15,8 +15,8 @@ public:
         queue<pair<int, int>> q;
 
         int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-        // find position of zero and push it to queue
 
+        // find position of zero and push it to queue
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
@@ -48,7 +48,7 @@ public:
                 if (nx >= 0 && ny >= 0 && nx < rows && ny < cols && mat[nx][ny] == -1)
                 {
                     mat[nx][ny] = mat[x][y] + 1;
-                    q.push({nx, ny}); // we pushed its position because yahan tak ham pahunch chueke h at time t =t
+                    q.push({nx, ny}); // we pushed its position because yahan tak ham pahunch chueke h at time t=t
                 }
             }
         }

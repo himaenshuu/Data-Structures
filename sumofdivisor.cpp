@@ -48,7 +48,7 @@ int findsum1(int n)
     // Compute sum of divisors for each number using a sieve-like method
     for (int i = 1; i <= n; i++)
     {
-        for (int j = i; j <= n; j += i)
+        for (int j = i; j <= n; j = j + i)
         {
             divisorSum[j] += i;
         }
