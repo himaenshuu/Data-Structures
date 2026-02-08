@@ -96,7 +96,10 @@ public:
 
         vector<int> dp2(n, -1);
         dp2[1] = arr[1];
-        dp2[2] = max(arr[2], arr[1]);
+        if (n > 2)
+        {
+            dp2[2] = max(arr[1], arr[2]);
+        }
 
         for (int i = 3; i < n; i++)
         {
@@ -121,11 +124,7 @@ int main()
     cout << obj.fun(v) << endl;
     return 0;
 }
-
 // space optimized solution-O(1)
-
-#include <bits/stdc++.h>
-using namespace std;
 
 class Solution1
 {

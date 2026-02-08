@@ -87,7 +87,7 @@ public:
     }
 };
 
-// space optimized O(1)
+// Space optimized O(1)
 int maxNonAdjacentSum(vector<int> &arr)
 {
     int n = arr.size();
