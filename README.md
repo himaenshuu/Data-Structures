@@ -32,8 +32,9 @@ DSA_CP_Solutions/
 
 ## 🛠 Technologies Used 💻🔧⚙️
 
+- 🖥️ C
 - 🖥️ C++
--    Java
+- 🖥️ Python
 ## 🔥 How to Use 📥🛠️📜
 
 1. 📥 Clone the repository:
