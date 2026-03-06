@@ -1,0 +1,94 @@
+#include <bits/stdc++.h>
+#include "utilities.h"
+using namespace std;
+typedef long long ll;
+#define endl "\n"
+
+struct node
+{
+    int val;
+    struct node *next;
+};
+
+class Solution
+{
+public:
+    bool checkIfCircular(struct node *head)
+    {
+        node *ptr = head;
+        node *slow = head;
+        node *fast = head->next;
+
+        while (slow)
+        {
+            if (slow->val == fast->val)
+            {
+                return true;
+            }
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return false;
+    }
+
+    struct node *reverseLL(struct node *head)
+    {
+        struct node *temp1 = NULL;
+        struct node *temp2 = NULL;
+
+        while (head)
+        {
+            temp2 = head->next;
+            head->next = temp1;
+            temp1 = head;
+            head = temp2;
+        }
+        head = temp1;
+
+        return head;
+    }
+
+    void showLL(struct node *head)
+    {
+        cout << "the numbers are : ";
+        node *ptr = head;
+        while (ptr)
+        {
+            cout << ptr->val << " ";
+            ptr = ptr->next;
+        }
+    }
+};
+
+int main()
+{
+    // ios_base::sync_with_stdio(false);
+    // cin.tie(NULL);
+    // Insert the element
+
+    node *head = NULL;
+    node *ptr = head;
+    int x;
+    cout << "Enter number 0 to escape :\n";
+    while (cin >> x && x != 0)
+    {
+        node *temp = new node();
+        temp->val = x;
+        temp->next = NULL;
+        if (!ptr) // if ptr is NULL
+        {
+            head = ptr = temp;
+            continue;
+        }
+        ptr->next = temp;
+        ptr = ptr->next;
+    }
+    Solution sol;
+
+    sol.showLL(head);
+    head = sol.reverseLL(head);
+    sol.showLL(head);
+
+    return 0;
+}

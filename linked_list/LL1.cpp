@@ -219,72 +219,74 @@ int main()
     node *head2 = NULL;
 
     head1 = addelementsll1(head1);
+    cout << "First number is : ";
     showll(head1);
     cout << endl;
     head2 = addelementsll1(head2);
+    cout << "Second number is : ";
     showll(head2);
     cout << endl;
     node *head3 = NULL;
 
     head3 = addTwoNumbers(head1, head2);
+    cout << "Addition of number is :";
     showll(head3);
-
     return 0;
 }
 
-ListNode *ptr1 = l1;
-ListNode *ptr2 = l2;
-ListNode *head = new ListNode();
-int carry = 0, sum = 0;
-sum = ptr1->val + ptr2->val;
-head->val = sum % 10;
-head->next = NULL;
-carry = sum / 10;
-ptr2 = ptr2->next;
-ptr1 = ptr1->next;
+// ListNode *ptr1 = l1;
+// ListNode *ptr2 = l2;
+// ListNode *head = new ListNode();
+// int carry = 0, sum = 0;
+// sum = ptr1->val + ptr2->val;
+// head->val = sum % 10;
+// head->next = NULL;
+// carry = sum / 10;
+// ptr2 = ptr2->next;
+// ptr1 = ptr1->next;
 
-ListNode *ptr3 = head;
+// ListNode *ptr3 = head;
 
-while (ptr1 != NULL && ptr2 != NULL)
-{
-    sum = ptr1->val + ptr2->val + carry;
-    ListNode *temp = new ListNode();
-    temp->next = NULL;
-    temp->val = sum % 10;
-    temp->next = NULL;
-    ptr3->next = temp;
-    ptr3 = ptr3->next;
-    ptr2 = ptr2->next;
-    ptr1 = ptr1->next;
-    carry = sum / 10;
-}
-if (ptr1 == NULL)
-{
-    while (ptr2 != NULL)
-    {
-        ListNode *temp = new ListNode();
-        sum = ptr2->val + carry;
-        temp->val = sum % 10;
-        temp->next = NULL;
-        ptr3->next = temp;
-        ptr3 = ptr3->next;
-        carry = sum / 10;
-        ptr2 = ptr2->next;
-    }
-}
+// while (ptr1 != NULL && ptr2 != NULL)
+// {
+//     sum = ptr1->val + ptr2->val + carry;
+//     ListNode *temp = new ListNode();
+//     temp->next = NULL;
+//     temp->val = sum % 10;
+//     temp->next = NULL;
+//     ptr3->next = temp;
+//     ptr3 = ptr3->next;
+//     ptr2 = ptr2->next;
+//     ptr1 = ptr1->next;
+//     carry = sum / 10;
+// }
+// if (ptr1 == NULL)
+// {
+//     while (ptr2 != NULL)
+//     {
+//         ListNode *temp = new ListNode();
+//         sum = ptr2->val + carry;
+//         temp->val = sum % 10;
+//         temp->next = NULL;
+//         ptr3->next = temp;
+//         ptr3 = ptr3->next;
+//         carry = sum / 10;
+//         ptr2 = ptr2->next;
+//     }
+// }
 
-if (ptr2 == NULL)
-{
-    while (ptr1)
-    {
-        ListNode *temp = new ListNode();
-        sum = ptr1->val + carry;
-        temp->val = sum % 10;
-        temp->next = NULL;
-        ptr3->next = temp;
-        ptr3 = ptr3->next;
-        carry = sum / 10;
-        ptr1 = ptr1->next;
-    }
-}
-return head;
+// if (ptr2 == NULL)
+// {
+//     while (ptr1)
+//     {
+//         ListNode *temp = new ListNode();
+//         sum = ptr1->val + carry;
+//         temp->val = sum % 10;
+//         temp->next = NULL;
+//         ptr3->next = temp;
+//         ptr3 = ptr3->next;
+//         carry = sum / 10;
+//         ptr1 = ptr1->next;
+//     }
+// }
+// return head;
