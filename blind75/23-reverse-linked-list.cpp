@@ -13,6 +13,47 @@ struct node
 class Solution
 {
 public:
+    struct node *mergeTwoLists(node *list1, node *list2)
+    {
+        node *head = NULL;
+        node *ptr = NULL;
+
+        while (list1 && list2)
+        {
+            node *temp = new node();
+            if (list1->val < list2->val)
+            {
+                temp->val = list1->val;
+                list1 = list1->next;
+            }
+            else {
+                temp->val = list2->val;
+                list2 = list2->next;
+            }
+            if (!head)
+            {
+                ptr = head = temp;
+            }
+            ptr = temp;
+            ptr = ptr->next;
+        }
+
+        while(list1){
+            node *temp = new node();
+            temp->val = list1->val;
+            list1 = list1->next;
+        }
+
+        while (list2)
+        {
+            node *temp = new node();
+            temp->val = list2->val;
+            list2 = list2->next;
+        }
+
+        return head;
+    }
+
     bool checkIfCircular(struct node *head)
     {
         node *ptr = head;
