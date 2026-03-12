@@ -10,6 +10,14 @@ Reason: One room for [0, 30], another for [5, 10] and [15, 20]
 
 Difficulty Level: Medium (LeetCode 253 - Meeting Rooms II)
 Commonly Asked In: Amazon, Google, Meta, Microsoft, Bloomberg, Uber
+
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+Sort meetings by start time. Use a min-heap that holds the end times of all
+ongoing meetings. For each new meeting, if the earliest-ending meeting is
+already finished, reuse that room (pop the heap); otherwise open a new room.
+The heap size at the end is the minimum number of rooms needed.
 */
 
 #include <bits/stdc++.h>

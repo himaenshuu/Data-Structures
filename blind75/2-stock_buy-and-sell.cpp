@@ -1,3 +1,15 @@
+/*
+Problem: Best Time to Buy and Sell Stock (LeetCode #121)
+Difficulty: Easy
+Top Companies: Amazon, Apple, Meta, Microsoft, Goldman Sachs, Adobe
+Entry-Level Importance (0-2 YoE): 5/5
+
+Early Intuition:
+Scan left to right while keeping track of the minimum price seen so far.
+At each day, profit = current price - minimum so far.
+Track the maximum across all such profits — no need to store the full array.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

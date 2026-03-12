@@ -22,6 +22,8 @@
  * TOP COMPANIES ASKED:
  *   Google, Amazon, Microsoft, Adobe, Samsung, Flipkart
  *
+ * ENTRY-LEVEL IMPORTANCE (0-2 YoE): 3/5
+ *
  * ============================================================
  * OPTIMAL APPROACH: Min-Heap (Priority Queue)
  * ============================================================

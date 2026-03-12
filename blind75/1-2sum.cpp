@@ -1,3 +1,16 @@
+/*
+Problem: Two Sum (LeetCode #1)
+Difficulty: Easy
+Top Companies: Amazon, Google, Meta, Microsoft, Adobe, Apple, Bloomberg
+Entry-Level Importance (0-2 YoE): 5/5
+
+Early Intuition:
+For each number you visit, its required partner is (target - number).
+Instead of a brute-force nested loop, store each number in a hash map keyed
+by its value. On each step, check if the complement already exists — if yes,
+return both indices immediately.
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;

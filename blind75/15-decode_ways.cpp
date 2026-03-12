@@ -1,3 +1,16 @@
+/*
+Problem: Decode Ways (LeetCode #91)
+Difficulty: Medium
+Top Companies: Amazon, Meta, Microsoft, Google, Bloomberg
+Entry-Level Importance (0-2 YoE): 3/5
+
+Early Intuition:
+Similar to climbing stairs but with validity checks. dp[i] = number of ways to
+decode the substring s[0..i-1]. At each position, check if the single digit
+s[i-1] is valid (1-9), and if the two-digit number s[i-2..i-1] is valid (10-26).
+Add the corresponding previous dp values when valid.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

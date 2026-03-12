@@ -1,3 +1,15 @@
+/*
+Problem: Contains Duplicate (LeetCode #217)
+Difficulty: Easy
+Top Companies: Amazon, Google, Bloomberg, Apple, Adobe
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+Insert each element into a hash set one by one.
+If an element is already in the set before you insert it, a duplicate exists.
+This turns an O(n^2) brute-force comparison into a single O(n) pass.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

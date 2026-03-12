@@ -37,6 +37,14 @@ Difficulty:
 Commonly asked in:
 - Amazon, Google, Microsoft, Meta (Facebook), Adobe
 
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+Sort by start time. Walk through intervals one by one. If the current interval
+overlaps with the last one in the result (current.start <= last.end), merge by
+extending the end to max(last.end, current.end). Otherwise push it as a new
+interval. Sorting ensures all potential overlaps are adjacent.
+
 Example:
 Input:  [[1,3],[2,6],[8,10],[15,18]]
 Output: [[1,6],[8,10],[15,18]]

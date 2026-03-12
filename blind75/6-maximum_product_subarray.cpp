@@ -1,10 +1,23 @@
+/*
+Problem: Maximum Product Subarray (LeetCode #152)
+Difficulty: Medium
+Top Companies: Amazon, Microsoft, Google, Meta, Adobe
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+Unlike sum, a large negative product can become the maximum if multiplied by
+another negative. Track both the maximum and minimum product ending at each
+index. When you encounter a negative number, swap max and min before updating,
+because multiplying a negative flips which is larger.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;
 typedef long long ll;
 #define endl "\n"
 
-// Logic track both minprod and maxproduct
+// Logic: track both minprod and maxproduct
 class Solution
 {
 public:

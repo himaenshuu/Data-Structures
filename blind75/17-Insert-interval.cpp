@@ -39,6 +39,15 @@ Difficulty:
 Commonly asked in:
 - Google, Amazon, Microsoft, Meta (Facebook), Adobe
 
+Entry-Level Importance (0-2 YoE): 3/5
+
+Early Intuition:
+Three-phase linear scan: first collect all intervals that end before the new
+interval starts (no overlap); then merge all intervals that overlap with the
+new one into a single expanded interval; finally append the rest as-is.
+The key insight is that overlapping intervals form one contiguous block because
+the input is already sorted.
+
 Example:
 intervals = [[1,3],[6,9]], newInterval = [2,5]
 Output = [[1,5],[6,9]]

@@ -1,3 +1,16 @@
+/*
+Problem: Non-overlapping Intervals (LeetCode #435)
+Difficulty: Medium
+Top Companies: Amazon, Google, Microsoft
+Entry-Level Importance (0-2 YoE): 3/5
+
+Early Intuition:
+Greedy: sort intervals by end time. Always keep the interval with the earliest
+end because it leaves maximum room for future intervals. If the next interval
+starts before the current one ends, it overlaps — discard it (count as removed).
+This minimises removals.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

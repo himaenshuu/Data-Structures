@@ -1,3 +1,16 @@
+/*
+Problem: 3Sum (LeetCode #15)
+Difficulty: Medium
+Top Companies: Amazon, Google, Meta, Microsoft, Apple
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+Sort the array first. Fix one element with an outer loop, then use two
+pointers on the remaining subarray to find pairs that sum to its negative.
+Move left pointer right when sum is too small, right pointer left when too
+large. Skip duplicates at both the outer and inner level to avoid repeat triplets.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

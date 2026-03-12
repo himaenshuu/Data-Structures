@@ -1,3 +1,16 @@
+/*
+Problem: Search in Rotated Sorted Array (LeetCode #33)
+Difficulty: Medium
+Top Companies: Amazon, Meta, Microsoft, Google, Uber
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+In a rotated sorted array, one of the two halves around mid is always fully sorted.
+Identify the sorted half (compare nums[left] with nums[mid]), then check if the
+target lies within that sorted range. If yes, search there; otherwise search the
+other half. This keeps binary search's O(log n) bound.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

@@ -1,9 +1,22 @@
+/*
+Problem: Coin Change (LeetCode #322)
+Difficulty: Medium
+Top Companies: Amazon, Google, Microsoft, Meta, Adobe
+Entry-Level Importance (0-2 YoE): 5/5
+
+Early Intuition:
+This is the most commonly asked DP problem at entry level.
+Build a dp array where dp[i] = fewest coins to make amount i.
+For each amount, try every coin: if you can make (i - coin), then dp[i] = min(dp[i], dp[i-coin] + 1).
+Start with dp[0] = 0 and initialize everything else to infinity.
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 #define endl "\n"
 
-// for the same problem, if coins were not given,we can use the greedy approach
+// for the same problem, if coins were not given, we can use the greedy approach
 class Solution
 {
 public:
