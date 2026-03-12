@@ -4,11 +4,21 @@ Difficulty: Medium
 Top Companies: Amazon, Google, Microsoft
 Entry-Level Importance (0-2 YoE): 3/5
 
+Problem Statement:
+Given an array of intervals, return the minimum number of intervals you need
+to remove to make the rest non-overlapping.
+
 Early Intuition:
 Greedy: sort intervals by end time. Always keep the interval with the earliest
 end because it leaves maximum room for future intervals. If the next interval
 starts before the current one ends, it overlaps — discard it (count as removed).
 This minimises removals.
+
+Optimal Approach:
+Sort by end time. Track prevEnd. For each interval:
+  if start < prevEnd: count++ (remove this interval, keep prevEnd unchanged).
+  else: update prevEnd = current end.
+Return count. Time: O(n log n), Space: O(1).
 */
 
 #include <bits/stdc++.h>

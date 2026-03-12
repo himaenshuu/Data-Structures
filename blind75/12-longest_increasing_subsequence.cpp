@@ -4,11 +4,21 @@ Difficulty: Medium
 Top Companies: Amazon, Google, Microsoft, Meta, Uber
 Entry-Level Importance (0-2 YoE): 4/5
 
+Problem Statement:
+Given an integer array nums, return the length of the longest strictly
+increasing subsequence. Elements do not need to be contiguous.
+
 Early Intuition:
 For every element, ask: what is the longest increasing subsequence that ends here?
 To answer, look back at all previous elements smaller than the current one and take
 the max of their LIS lengths, then add 1. This is classic O(n^2) DP. A binary
 search optimisation can bring it to O(n log n).
+
+Optimal Approach:
+O(n^2) DP: dp[i] = 1 + max(dp[j]) for all j < i where nums[j] < nums[i].
+O(n log n) approach: maintain a tails array. For each element, binary search
+for its position in tails and replace or extend. tails.size() = LIS length.
+Time: O(n log n), Space: O(n).
 */
 
 #include <bits/stdc++.h>

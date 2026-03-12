@@ -4,11 +4,21 @@ Difficulty: Medium
 Top Companies: Amazon, Google, Microsoft, Meta, Adobe
 Entry-Level Importance (0-2 YoE): 5/5
 
+Problem Statement:
+Given an array of coin denominations and a total amount, return the minimum
+number of coins needed to make up that amount. If it is impossible, return -1.
+You have an unlimited supply of each coin.
+
 Early Intuition:
 This is the most commonly asked DP problem at entry level.
 Build a dp array where dp[i] = fewest coins to make amount i.
 For each amount, try every coin: if you can make (i - coin), then dp[i] = min(dp[i], dp[i-coin] + 1).
 Start with dp[0] = 0 and initialize everything else to infinity.
+
+Optimal Approach:
+Bottom-up DP. dp[0]=0, dp[1..amount]=INT_MAX. For each amount i, try every
+coin c where c<=i: dp[i] = min(dp[i], dp[i-c]+1). Return dp[amount] or -1.
+Time: O(amount * coins), Space: O(amount).
 */
 
 #include <bits/stdc++.h>

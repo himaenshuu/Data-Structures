@@ -4,11 +4,22 @@ Difficulty: Medium
 Top Companies: Amazon, Google, Meta, Microsoft, Apple
 Entry-Level Importance (0-2 YoE): 4/5
 
+Problem Statement:
+Given an integer array nums where nums[i] represents the maximum jump length
+from index i, return true if you can reach the last index starting from index 0.
+
 Early Intuition:
 Greedily track the farthest index you can reach as you scan left to right.
 If at any point your current index exceeds the farthest reachable index, you
 are stuck. If the farthest reachable index reaches or passes the last index
 before you get stuck, return true.
+
+Optimal Approach:
+Single pass with variable maxReach. For each index i (while i <= maxReach):
+  maxReach = max(maxReach, i + nums[i]).
+  if maxReach >= n-1: return true.
+If loop ends without returning, return false.
+Time: O(n), Space: O(1).
 */
 
 #include <bits/stdc++.h>

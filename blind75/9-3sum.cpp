@@ -4,11 +4,21 @@ Difficulty: Medium
 Top Companies: Amazon, Google, Meta, Microsoft, Apple
 Entry-Level Importance (0-2 YoE): 4/5
 
+Problem Statement:
+Given an integer array nums, return all triplets [nums[i], nums[j], nums[k]]
+such that i != j != k and nums[i] + nums[j] + nums[k] == 0. The solution set
+must not contain duplicate triplets.
+
 Early Intuition:
 Sort the array first. Fix one element with an outer loop, then use two
 pointers on the remaining subarray to find pairs that sum to its negative.
 Move left pointer right when sum is too small, right pointer left when too
 large. Skip duplicates at both the outer and inner level to avoid repeat triplets.
+
+Optimal Approach:
+Sort -> outer loop fixes nums[i] -> two pointers left=i+1, right=n-1.
+if sum < 0: left++; if sum > 0: right--; if sum == 0: record and skip duplicates.
+Time: O(n^2), Space: O(1) extra.
 */
 
 #include <bits/stdc++.h>

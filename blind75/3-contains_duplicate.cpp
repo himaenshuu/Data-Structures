@@ -4,10 +4,19 @@ Difficulty: Easy
 Top Companies: Amazon, Google, Bloomberg, Apple, Adobe
 Entry-Level Importance (0-2 YoE): 4/5
 
+Problem Statement:
+Given an integer array nums, return true if any value appears at least twice,
+and false if every element is distinct.
+
 Early Intuition:
 Insert each element into a hash set one by one.
 If an element is already in the set before you insert it, a duplicate exists.
 This turns an O(n^2) brute-force comparison into a single O(n) pass.
+
+Optimal Approach:
+Iterate the array; on each element check membership in an unordered_set before
+inserting. First hit returns true immediately; finishing the loop without a hit
+returns false. Time: O(n), Space: O(n).
 */
 
 #include <bits/stdc++.h>
@@ -19,7 +28,7 @@ typedef long long ll;
 class Solution
 {
 public:
-    bool containsDuplicate(vector<int> &nums) //O(nlogn)
+    bool containsDuplicate(vector<int> &nums) // O(nlogn)
     {
         sort(nums.begin(), nums.end()); // O(nlogn) bcoz of binary insertion
         for (int i = 0; i < nums.size(); i++)
@@ -30,12 +39,13 @@ public:
         return false;
     }
 
-    bool containsDuplicate1(vector<int> &nums) //O(n)
+    bool containsDuplicate1(vector<int> &nums) // O(n)
     {
         unordered_map<int, int> mp;
         for (int i = 0; i < nums.size(); i++)
         {
-            if(mp.count(nums[i])){
+            if (mp.count(nums[i]))
+            {
                 return true;
             }
             mp[nums[i]]++;
@@ -50,7 +60,8 @@ int main()
     cin.tie(NULL);
     Solution sol;
     vector<int> vect = {5, 2, 1, 4};
-    if(sol.containsDuplicate1(vect)){
+    if (sol.containsDuplicate1(vect))
+    {
         cout << "True" << endl;
     }
     else

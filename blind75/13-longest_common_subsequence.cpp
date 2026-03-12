@@ -4,11 +4,20 @@ Difficulty: Medium
 Top Companies: Amazon, Google, Microsoft, Adobe, Uber
 Entry-Level Importance (0-2 YoE): 3/5
 
+Problem Statement:
+Given two strings text1 and text2, return the length of their longest common
+subsequence. A subsequence is formed by deleting some characters without changing
+the relative order. Return 0 if there is no common subsequence.
+
 Early Intuition:
 Build a 2D DP table where dp[i][j] = LCS length of first i chars of text1
 and first j chars of text2.
 If characters match: dp[i][j] = dp[i-1][j-1] + 1.
 If they don't: dp[i][j] = max(dp[i-1][j], dp[i][j-1]) (skip one character from either string).
+
+Optimal Approach:
+Tabulation: fill an (m+1)x(n+1) table row by row using the recurrence above.
+Return dp[m][n]. Time: O(m*n), Space: O(m*n) (reducible to O(min(m,n)) with rolling array).
 */
 
 #include <bits/stdc++.h>

@@ -4,10 +4,18 @@ Difficulty: Easy
 Top Companies: Amazon, Microsoft, Meta, Google, Apple, Adobe
 Entry-Level Importance (0-2 YoE): 5/5
 
+Problem Statement:
+Given the head of a singly linked list, reverse the list and return the new head.
+
 Early Intuition:
 Use three pointers: prev (starts null), curr (starts at head), next (temp).
 For each node, save next, redirect curr->next to prev, then advance all three.
 After the loop, prev points to the new head.
+
+Optimal Approach:
+Iterative three-pointer reversal. No extra data structures.
+prev=null, curr=head; while curr: next=curr->next, curr->next=prev, prev=curr, curr=next.
+Return prev. Time: O(n), Space: O(1).
 */
 
 #include <bits/stdc++.h>
@@ -38,7 +46,8 @@ public:
                 temp->val = list1->val;
                 list1 = list1->next;
             }
-            else {
+            else
+            {
                 temp->val = list2->val;
                 list2 = list2->next;
             }
@@ -50,7 +59,8 @@ public:
             ptr = ptr->next;
         }
 
-        while(list1){
+        while (list1)
+        {
             node *temp = new node();
             temp->val = list1->val;
             list1 = list1->next;

@@ -4,11 +4,21 @@ Difficulty: Easy
 Top Companies: Amazon, Google, Meta, Microsoft, Adobe, Apple, Bloomberg
 Entry-Level Importance (0-2 YoE): 5/5
 
+Problem Statement:
+Given an array of integers nums and an integer target, return the indices of the
+two numbers that add up to target. Each input has exactly one solution and you
+may not use the same element twice.
+
 Early Intuition:
 For each number you visit, its required partner is (target - number).
 Instead of a brute-force nested loop, store each number in a hash map keyed
 by its value. On each step, check if the complement already exists — if yes,
 return both indices immediately.
+
+Optimal Approach:
+Single-pass hash map. Iterate once; for each nums[i] check if (target - nums[i])
+is already in the map. If yes, return {map[target-nums[i]], i}. Otherwise store
+nums[i] -> i in the map. Time: O(n), Space: O(n).
 */
 
 #include <bits/stdc++.h>
