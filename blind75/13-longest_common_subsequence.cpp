@@ -1,3 +1,16 @@
+/*
+Problem: Longest Common Subsequence (LeetCode #1143)
+Difficulty: Medium
+Top Companies: Amazon, Google, Microsoft, Adobe, Uber
+Entry-Level Importance (0-2 YoE): 3/5
+
+Early Intuition:
+Build a 2D DP table where dp[i][j] = LCS length of first i chars of text1
+and first j chars of text2.
+If characters match: dp[i][j] = dp[i-1][j-1] + 1.
+If they don't: dp[i][j] = max(dp[i-1][j], dp[i][j-1]) (skip one character from either string).
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

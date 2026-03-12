@@ -1,3 +1,16 @@
+/*
+Problem: Maximum Subarray / Kadane's Algorithm (LeetCode #53)
+Difficulty: Medium
+Top Companies: Amazon, Microsoft, Google, Adobe, Meta
+Entry-Level Importance (0-2 YoE): 5/5
+
+Early Intuition:
+Keep a running sum as you scan the array.
+Whenever the running sum drops below zero, reset it to the current element
+(a negative prefix can only drag down any future sum).
+Track the maximum running sum seen at any point.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

@@ -1,3 +1,16 @@
+/*
+Problem: Longest Increasing Subsequence (LeetCode #300)
+Difficulty: Medium
+Top Companies: Amazon, Google, Microsoft, Meta, Uber
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+For every element, ask: what is the longest increasing subsequence that ends here?
+To answer, look back at all previous elements smaller than the current one and take
+the max of their LIS lengths, then add 1. This is classic O(n^2) DP. A binary
+search optimisation can bring it to O(n log n).
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

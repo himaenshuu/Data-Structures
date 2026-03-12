@@ -8,6 +8,12 @@ typedef long long ll;
  * ============================================================
  *  Problem  : Merge Two Sorted Lists (LeetCode #21)
  *  Difficulty: Easy
+ *  Entry-Level Importance (0-2 YoE): 5/5
+ *  Early Intuition:
+ *    Use a dummy head node to simplify edge cases. Keep a pointer to the
+ *    tail of the merged list. At each step, attach the smaller front node
+ *    of the two lists and advance that list. When one list is exhausted,
+ *    attach the remaining tail of the other directly.
  * ============================================================
  *  Statement:
  *    You are given the heads of two sorted (ascending) singly

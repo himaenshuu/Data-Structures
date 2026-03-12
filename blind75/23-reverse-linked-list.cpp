@@ -1,3 +1,15 @@
+/*
+Problem: Reverse Linked List (LeetCode #206)
+Difficulty: Easy
+Top Companies: Amazon, Microsoft, Meta, Google, Apple, Adobe
+Entry-Level Importance (0-2 YoE): 5/5
+
+Early Intuition:
+Use three pointers: prev (starts null), curr (starts at head), next (temp).
+For each node, save next, redirect curr->next to prev, then advance all three.
+After the loop, prev points to the new head.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

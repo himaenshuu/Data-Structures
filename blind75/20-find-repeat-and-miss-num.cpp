@@ -1,3 +1,16 @@
+/*
+Problem: Find Repeating and Missing Number
+Difficulty: Medium
+Top Companies: Amazon, Microsoft, Samsung, Flipkart
+Entry-Level Importance (0-2 YoE): 3/5
+
+Early Intuition:
+For an array of size n containing values [1..n] with one duplicate and one
+missing number, a frequency map makes it trivial: count each value, then scan
+for the count that is 2 (duplicate) and the count that is 0 (missing). An
+alternative math approach uses the diff between expected and actual sum/sum-of-squares.
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

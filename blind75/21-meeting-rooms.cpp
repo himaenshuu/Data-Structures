@@ -19,6 +19,13 @@ Approach (Greedy + Sorting):
 
 Time Complexity: O(n log n) due to sorting.
 Space Complexity: O(1) extra (ignoring sorting internals).
+
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+Sort meetings by start time. Two meetings conflict only if one starts before
+the previous one ends. Check every adjacent pair after sorting — the first
+overlap found means you cannot attend all meetings.
 */
 
 #include <bits/stdc++.h>

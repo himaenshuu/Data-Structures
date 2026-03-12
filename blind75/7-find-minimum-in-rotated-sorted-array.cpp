@@ -1,3 +1,16 @@
+/*
+Problem: Find Minimum in Rotated Sorted Array (LeetCode #153)
+Difficulty: Medium
+Top Companies: Amazon, Microsoft, Google, Apple, Meta
+Entry-Level Importance (0-2 YoE): 4/5
+
+Early Intuition:
+The array has two sorted halves joined at a rotation point.
+The minimum is always at the start of the right (unsorted) half.
+Use binary search: if nums[mid] > nums[right], the minimum is in the right
+half; otherwise it is in the left half (including mid).
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;

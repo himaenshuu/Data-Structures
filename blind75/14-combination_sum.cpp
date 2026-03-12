@@ -7,6 +7,13 @@ DIFFICULTY: Medium ⭐⭐
 
 COMPANIES ASKED: Amazon, Microsoft, Meta, Google, Apple, Adobe, Bloomberg
 
+ENTRY-LEVEL IMPORTANCE (0-2 YoE): 3/5
+
+EARLY INTUITION:
+At each step, decide whether to include the current candidate again (staying at
+the same index, since reuse is allowed) or skip to the next. Backtrack when the
+running sum exceeds the target. Sorting candidates lets you prune early.
+
 PROBLEM STATEMENT (Version 1):
 Given an array of distinct integers `candidates` and a target integer `target`,
 return all unique combinations of `candidates` where the chosen numbers sum to `target`.
