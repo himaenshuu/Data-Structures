@@ -1,3 +1,52 @@
+/******************************************************************************
+ * LEETCODE PROBLEM
+ ******************************************************************************/
+/*
+ * Problem: 126. Word Ladder II
+ * Difficulty: Hard
+ * LeetCode Link: https://leetcode.com/problems/word-ladder-ii/
+ *
+ * PROBLEM STATEMENT:
+ * Given two words beginWord and endWord, and a dictionary wordList, return
+ * all shortest transformation sequences from beginWord to endWord, or empty
+ * list if no such sequence exists. Only one letter can be changed at a time,
+ * and each transformed word must exist in wordList.
+ * Constraints: 1 <= beginWord.length <= 5, wordList.length <= 5000.
+ *
+ * Example:
+ * Input: beginWord = "hit", endWord = "cog",
+ *        wordList = ["hot","dot","dog","lot","log","cog"]
+ * Output: [["hit","hot","dot","dog","cog"],
+ *          ["hit","hot","lot","log","cog"]]
+ *
+ * APPROACH:
+ * Algorithm: BFS with Pattern Indexing + Backtracking
+ * Strategy: 1) Build pattern index (word with '*' wildcards) for fast
+ *           neighbor lookup. 2) BFS from beginWord tracking parents and
+ *           distances. 3) Backtrack from endWord using parents to build
+ *           all shortest paths. Pattern indexing avoids TLE by reducing
+ *           neighbor generation from O(26*L) to O(L*neighbors).
+ *
+ * COMPLEXITY ANALYSIS:
+ * Time Complexity: O(N × L² + P) - N words, L length, P paths to output
+ * Space Complexity: O(N × L) - Pattern index + parents map + paths
+ *
+ * COMPANIES (Asked in interviews):
+ * Tier 1 (FAANG+): Amazon, Google, Microsoft, Meta, Apple
+ * Tier 2 (Tech): Bloomberg, Adobe, LinkedIn, Uber, Oracle, Yelp
+ *
+ * ENTRY LEVEL IMPORTANCE:
+ * Rating: 3/5 - Good to Know
+ * Why: Advanced follow-up to Word Ladder requiring both BFS and
+ *      backtracking. Tests optimization skills and complex graph traversal.
+ *      More common in senior interviews; good stretch goal for entry-level.
+ *
+ * SIMILAR PROBLEMS: LC 127, LC 433, LC 752, LC 1091, LC 2612
+ *
+ * DATE SOLVED: 2026-03-23
+ * LAST REVIEWED: 2026-03-23
+ ******************************************************************************/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;

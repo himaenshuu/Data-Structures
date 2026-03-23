@@ -1,3 +1,46 @@
+/******************************************************************************
+ * LEETCODE PROBLEM
+ ******************************************************************************/
+/*
+ * Problem: 542. 01 Matrix
+ * Difficulty: Medium
+ * LeetCode Link: https://leetcode.com/problems/01-matrix/
+ *
+ * PROBLEM STATEMENT:
+ * Given an m x n binary matrix mat, return the distance of the nearest 0
+ * for each cell. The distance between two adjacent cells is 1. Constraints:
+ * m,n <= 10^4, mat[i][j] is either 0 or 1.
+ *
+ * Example:
+ * Input: mat = [[0,0,0],[0,1,0],[1,1,1]]
+ * Output: [[0,0,0],[0,1,0],[1,2,1]]
+ *
+ * APPROACH:
+ * Algorithm: Multi-source Breadth-First Search (BFS)
+ * Strategy: Start BFS from all cells with 0 simultaneously. For each cell
+ *           with value 1, its distance is calculated as 1 + distance of
+ *           nearest visited neighbor. BFS guarantees shortest distance.
+ *
+ * COMPLEXITY ANALYSIS:
+ * Time Complexity: O(m × n) - Visit each cell at most once
+ * Space Complexity: O(m × n) - Queue can hold all cells in worst case
+ *
+ * COMPANIES (Asked in interviews):
+ * Tier 1 (FAANG+): Amazon, Google, Microsoft, Meta, Apple
+ * Tier 2 (Tech): Bloomberg, Adobe, Oracle, Uber, Salesforce, LinkedIn
+ *
+ * ENTRY LEVEL IMPORTANCE:
+ * Rating: 4/5 - Highly Recommended
+ * Why: Important multi-source BFS variant demonstrating shortest path
+ *      computation in grids. Tests understanding of BFS distance tracking.
+ *      Common in mid-level technical interviews.
+ *
+ * SIMILAR PROBLEMS: LC 994, LC 286, LC 1162, LC 1765, LC 2146
+ *
+ * DATE SOLVED: 2026-03-23
+ * LAST REVIEWED: 2026-03-23
+ ******************************************************************************/
+
 #include <bits/stdc++.h>
 #include "../utilities.h"
 using namespace std;

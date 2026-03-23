@@ -1,3 +1,50 @@
+/******************************************************************************
+ * LEETCODE PROBLEM
+ ******************************************************************************/
+/*
+ * Problem: 127. Word Ladder
+ * Difficulty: Hard
+ * LeetCode Link: https://leetcode.com/problems/word-ladder/
+ *
+ * PROBLEM STATEMENT:
+ * Given two words beginWord and endWord, and a dictionary wordList, return
+ * the length of shortest transformation sequence from beginWord to endWord,
+ * such that: 1) only one letter can be changed at a time, 2) each
+ * transformed word must exist in wordList. Return 0 if no sequence exists.
+ * Constraints: 1 <= beginWord.length <= 10, wordList.length <= 5000.
+ *
+ * Example:
+ * Input: beginWord = "hit", endWord = "cog",
+ *        wordList = ["hot","dot","dog","lot","log","cog"]
+ * Output: 5 (hit -> hot -> dot -> dog -> cog)
+ *
+ * APPROACH:
+ * Algorithm: Breadth-First Search (BFS) with word transformations
+ * Strategy: Use BFS to find shortest path. For each word, try changing each
+ *           character to 'a'-'z' to generate neighbors. Track visited words
+ *           using set for O(1) lookup. BFS level represents path length.
+ *
+ * COMPLEXITY ANALYSIS:
+ * Time Complexity: O(M² × N) - M = word length, N = wordList size
+ *                  For each word, try M positions × 26 letters, check in set
+ * Space Complexity: O(M × N) - Queue + set storing all words
+ *
+ * COMPANIES (Asked in interviews):
+ * Tier 1 (FAANG+): Amazon, Meta, Google, Microsoft, Apple
+ * Tier 2 (Tech): LinkedIn, Bloomberg, Adobe, Uber, Oracle, Salesforce
+ *
+ * ENTRY LEVEL IMPORTANCE:
+ * Rating: 4/5 - Highly Recommended
+ * Why: Classic BFS shortest path problem with string transformations. Tests
+ *      graph modeling skills and BFS mastery. Common in mid to senior level
+ *      interviews, good stretch problem for entry-level preparation.
+ *
+ * SIMILAR PROBLEMS: LC 126, LC 433, LC 752, LC 1129, LC 2812
+ *
+ * DATE SOLVED: 2026-03-23
+ * LAST REVIEWED: 2026-03-23
+ ******************************************************************************/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;

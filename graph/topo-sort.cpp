@@ -1,3 +1,56 @@
+/******************************************************************************
+ * GRAPH ALGORITHM TEMPLATE
+ ******************************************************************************/
+/*
+ * Algorithm: Topological Sort - DFS-based (Post-order)
+ * Category: Topological Sorting / Graph Ordering
+ *
+ * DESCRIPTION:
+ * Topological sort produces a linear ordering of vertices in a directed
+ * acyclic graph (DAG) such that for every edge u->v, u appears before v.
+ * This DFS-based approach uses post-order traversal with a stack to store
+ * finishing times. When DFS finishes processing a node, push it to stack.
+ * Final order is obtained by popping from stack.
+ *
+ * KEY CHARACTERISTICS:
+ * - Only works on Directed Acyclic Graphs (DAGs)
+ * - Uses DFS with stack to track finishing times
+ * - Nodes pushed to stack after all descendants are processed
+ * - Reverse of stack gives topological order
+ * - Can detect cycles (if back edge found during DFS)
+ *
+ * COMPLEXITY:
+ * Time: O(V + E) - DFS visits each vertex and edge once
+ * Space: O(V) - Visited array + recursion stack + result stack
+ *
+ * COMMON USE CASES:
+ * 1. Course scheduling with prerequisites
+ * 2. Build systems (compile dependencies)
+ * 3. Task scheduling with dependencies
+ * 4. Package manager dependency resolution
+ * 5. Spreadsheet formula evaluation order
+ *
+ * RELATED LEETCODE PROBLEMS:
+ * - LC 207 (Course Schedule) - Medium
+ * - LC 210 (Course Schedule II) - Medium
+ * - LC 269 (Alien Dictionary) - Hard
+ * - LC 310 (Minimum Height Trees) - Medium
+ * - LC 2115 (Find All Recipes) - Medium
+ *
+ * INTERVIEW IMPORTANCE:
+ * Rating: 5/5 - Essential for dependency problems
+ *
+ * IMPLEMENTATION NOTES:
+ * - Push node to stack AFTER visiting all neighbors (post-order)
+ * - Result is reverse of stack (pop order gives topological sort)
+ * - If graph has cycle, topological sort doesn't exist
+ * - Alternative: Kahn's algorithm (BFS-based, easier cycle detection)
+ * - For multiple components, iterate through all unvisited nodes
+ *
+ * DATE CREATED: 2026-03-23
+ * LAST UPDATED: 2026-03-23
+ ******************************************************************************/
+
 #include <bits/stdc++.h>
 using namespace std;
 #include "../utilities.h"

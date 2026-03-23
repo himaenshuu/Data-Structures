@@ -1,3 +1,50 @@
+/******************************************************************************
+ * LEETCODE PROBLEM
+ ******************************************************************************/
+/*
+ * Problem: 210. Course Schedule II
+ * Difficulty: Medium
+ * LeetCode Link: https://leetcode.com/problems/course-schedule-ii/
+ *
+ * PROBLEM STATEMENT:
+ * Given numCourses and a list of prerequisite pairs [a,b] where you must
+ * take course b before course a, return the ordering of courses you should
+ * take to finish all courses. If there are multiple valid answers, return
+ * any of them. If it's impossible to finish all courses, return empty array.
+ * Constraints: 1 <= numCourses <= 2000, 0 <= prerequisites.length <= 5000.
+ *
+ * Example:
+ * Input: numCourses = 4, prerequisites = [[1,0],[2,0],[3,1],[3,2]]
+ * Output: [0,2,1,3] or [0,1,2,3] (both valid)
+ *
+ * APPROACH:
+ * Algorithm: Topological Sort using Kahn's Algorithm (BFS)
+ * Strategy: Build directed graph with indegree array. Process courses with
+ *           indegree 0, add them to result order, and decrement indegrees
+ *           of neighbors. If all courses are added to result, return order;
+ *           otherwise return empty array (cycle detected).
+ *
+ * COMPLEXITY ANALYSIS:
+ * Time Complexity: O(V + E) - Visit all vertices and edges once
+ * Space Complexity: O(V + E) - Adjacency list + indegree array + queue
+ *
+ * COMPANIES (Asked in interviews):
+ * Tier 1 (FAANG+): Amazon, Google, Microsoft, Meta, Apple
+ * Tier 2 (Tech): Bloomberg, Oracle, Adobe, Uber, LinkedIn, Salesforce
+ *
+ * ENTRY LEVEL IMPORTANCE:
+ * Rating: 4/5 - Highly Recommended
+ * Why: Direct follow-up to Course Schedule I. Tests topological sort
+ *      implementation with output requirement. Common in interviews as it
+ *      combines cycle detection with order generation. Important for
+ *      understanding dependency resolution in real systems.
+ *
+ * SIMILAR PROBLEMS: LC 207, LC 802, LC 1136, LC 2115, LC 269
+ *
+ * DATE SOLVED: 2026-03-23
+ * LAST REVIEWED: 2026-03-23
+ ******************************************************************************/
+
 #include <bits/stdc++.h>
 using namespace std;
 #include "../utilities.h"

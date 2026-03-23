@@ -1,3 +1,49 @@
+/******************************************************************************
+ * LEETCODE PROBLEM
+ ******************************************************************************/
+/*
+ * Problem: 733. Flood Fill
+ * Difficulty: Easy
+ * LeetCode Link: https://leetcode.com/problems/flood-fill/
+ *
+ * PROBLEM STATEMENT:
+ * Given an m x n image represented by a 2D integer grid where image[i][j]
+ * represents the pixel value. Starting from pixel (sr, sc), perform a flood
+ * fill: change the starting pixel and all connected pixels of the same color
+ * to the new color. Two pixels are connected if they are adjacent
+ * 4-directionally. Constraints: m,n <= 50.
+ *
+ * Example:
+ * Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+ * Output: [[2,2,2],[2,2,0],[2,0,1]]
+ *
+ * APPROACH:
+ * Algorithm: DFS (Recursive) or BFS (Iterative)
+ * Strategy: Starting from (sr, sc), recursively/iteratively visit all
+ *           4-directionally connected pixels with the same original color
+ *           and change them to the new color. Handle edge case where
+ *           original color equals new color.
+ *
+ * COMPLEXITY ANALYSIS:
+ * Time Complexity: O(m × n) - In worst case, visit all pixels
+ * Space Complexity: O(m × n) - Recursion stack or queue in worst case
+ *
+ * COMPANIES (Asked in interviews):
+ * Tier 1 (FAANG+): Google, Microsoft, Amazon, Meta, Apple
+ * Tier 2 (Tech): Adobe, Bloomberg, Uber, Oracle, Salesforce, LinkedIn
+ *
+ * ENTRY LEVEL IMPORTANCE:
+ * Rating: 5/5 - Essential
+ * Why: Fundamental graph traversal problem teaching DFS/BFS basics. Classic
+ *      introduction to connected components and 2D grid traversal. Perfect
+ *      entry-level problem that appears in 80% of junior interviews.
+ *
+ * SIMILAR PROBLEMS: LC 200, LC 695, LC 1254, LC 1020, LC 827
+ *
+ * DATE SOLVED: 2026-03-23
+ * LAST REVIEWED: 2026-03-23
+ ******************************************************************************/
+
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
