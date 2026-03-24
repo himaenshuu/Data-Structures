@@ -36,7 +36,7 @@ int main()
 {
     cout << int_to_roman(234)
          << endl;
-    cout << roman_to_int("LXIV");
+    cout << roman_to_int("LX");
 
     return 0;
 }
