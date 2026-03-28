@@ -34,7 +34,7 @@ public:
     int lengthOfLongestSubstring2(string s)
     {
         int n = s.size();
-        vector<int> hash(256, -1);
+        vector<int> hash(256, -1); // it will store the position of that char 
 
         int l = 0, r = 0, ans = 0;
 
@@ -54,13 +54,12 @@ public:
         return ans;
     }
 };
+// tc=O(N)
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    char a = 245;
-    cout << a << endl;
 
     return 0;
 }
