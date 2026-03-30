@@ -1,3 +1,20 @@
+/*
+Problem (LeetCode-style, paraphrased):
+Given an m x n grid of characters and a string `word`, determine if `word` can be formed by sequentially adjacent cells (up/down/left/right). Each cell may be used at most once in the path.
+
+Difficulty: Medium
+
+Companies (commonly reported; varies by source/time):
+Amazon, Microsoft, Google, Meta, Apple, Uber, Bloomberg, LinkedIn, Salesforce, ByteDance
+
+Entry-level importance: High
+
+Optimal approach used here:
+- Backtracking DFS from every cell; when a character matches, mark it as visited (temporary overwrite), explore 4 directions, then restore (backtrack).
+
+Time complexity: O(m*n*4^L) worst-case, where L = |word|
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;
@@ -53,7 +70,27 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << "" << endl;
+
+    Solution sol;
+    vector<vector<char>> board = {
+        {'A', 'B', 'C', 'E'},
+        {'S', 'F', 'C', 'S'},
+        {'A', 'D', 'E', 'E'},
+    };
+
+    // Test case 1
+    {
+        auto b = board;
+        assert(sol.exist(b, "ABCCED") == true);
+    }
+
+    // Test case 2
+    {
+        auto b = board;
+        assert(sol.exist(b, "ABCB") == false);
+    }
+
+    cout << "All tests passed." << endl;
 
     return 0;
 }

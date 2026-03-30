@@ -1,3 +1,20 @@
+/*
+Problem (LeetCode-style, paraphrased):
+Given a string `s` (uppercase English letters) and an integer `k`, you may replace at most `k` characters in any substring. Return the length of the longest substring that can be made of the same repeating character after at most `k` replacements.
+
+Difficulty: Medium
+
+Companies (commonly reported; varies by source/time):
+Amazon, Microsoft, Google, Meta, Apple, Uber, Bloomberg, LinkedIn, Salesforce, TikTok
+
+Entry-level importance: High
+
+Optimal approach used here:
+- Sliding window + frequency counts: keep `mf` = max frequency in the current window; if `(windowLen - mf) > k`, shrink from the left.
+
+Time complexity: O(n)
+*/
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;
@@ -39,7 +56,16 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << "" << endl;
+
+    Solution sol;
+
+    // Test case 1
+    assert(sol.characterReplacement("ABAB", 2) == 4);
+
+    // Test case 2
+    assert(sol.characterReplacement("AABABBA", 1) == 4);
+
+    cout << "All tests passed." << endl;
 
     return 0;
 }

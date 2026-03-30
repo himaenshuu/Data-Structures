@@ -1,3 +1,21 @@
+/*
+Problem (paraphrased, interview-style):
+Given an integer array `nums`, find the maximum length of a contiguous subarray that forms an arithmetic progression (constant difference between adjacent elements) if you are allowed to modify at most one element of the array.
+
+Difficulty: Medium (variant)
+
+Companies (commonly reported; varies by source/time):
+Google, Amazon, Meta, Microsoft, Apple, Uber, Bloomberg, LinkedIn, Salesforce, Adobe
+
+Entry-level importance: Medium
+
+Optimal approach used here:
+- Build two DP arrays over contiguous runs: `left[i]` = length of arithmetic run ending at i, `right[i]` = length starting at i.
+- Try (1) extending a run by changing one endpoint element and (2) bridging a left-run and right-run by changing the middle element when the span allows an integer midpoint difference.
+
+Time complexity: O(n)
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -92,18 +110,20 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    // n = number of elements.
-    int n;
-    cin >> n;
-    // nums = input array.
-    vector<int> nums(n);
-    // Read all elements.
-    for (int i = 0; i < n; i++)
-        cin >> nums[i];
-
-    // Create solution object.
     Solution sol;
-    // Compute and print final answer.
-    cout << sol.longestArithmetic(nums) << '\n';
+
+    // Test case 1
+    {
+        vector<int> nums = {1, 2, 3, 4};
+        assert(sol.longestArithmetic(nums) == 4);
+    }
+
+    // Test case 2
+    {
+        vector<int> nums = {1, 2, 3, 8, 9};
+        assert(sol.longestArithmetic(nums) == 4);
+    }
+
+    cout << "All tests passed.\n";
     return 0;
 }
