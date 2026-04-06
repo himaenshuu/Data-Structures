@@ -4,54 +4,36 @@ using namespace std;
 typedef long long ll;
 #define endl "\n"
 
-/* Approach:
-Go to each index of the string and
-Expand it in left and right direction
-for the odd and even lengths palindrome.
-*/
-
 class Solution
 {
 public:
-    string longestPalindrome(string s)
+    int countSubstrings(string s)
     {
         int n = s.size();
-        int maxlen = 0;
-        string ans = "";
+        int count = 0;
 
         for (int i = 0; i < n; i++)
         {
-            // for the odd
+            // odd
             int l = i, r = i;
             while (l >= 0 && r <= n - 1 && s[l] == s[r])
             {
-                if (r - l + 1 > maxlen)
-                {
-                    maxlen = r - l + 1;
-                    ans = s.substr(l, maxlen);
-                }
                 l--;
                 r++;
+                count++;
             }
-
-            // for the even
+            // even
             l = i, r = i + 1;
             while (l >= 0 && r <= n - 1 && s[l] == s[r])
             {
-                if (r - l + 1 > maxlen)
-                {
-                    maxlen = r - l + 1;
-                    ans = s.substr(l, maxlen);
-                }
                 l--;
                 r++;
+                count++;
             }
         }
-
-        return ans;
+        return count;
     }
 };
-// tc = O(N^2)
 
 int main()
 {
