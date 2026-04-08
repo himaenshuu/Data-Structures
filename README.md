@@ -2,7 +2,7 @@
 
 This repository contains solutions to various Data Structures and Algorithms (DSA) and Competitive Programming (CP) problems. 📚💡🖥️ The solutions are implemented in different programming languages to enhance problem-solving skills and algorithmic thinking. 🧠⚡🔍
 
-## 📌 Structure 📂🗂️
+## 📌 Structure 📂
 
 The folder is organized as follows:
 
