@@ -28,7 +28,7 @@ public:
 
         if (n <= 2)
             return n;
-        // initialize right and left dp and initialize it with 1
+        // create right and left dp and initialize it with 1
         vector<int> left(n, 1), right(n, 1);
 
         // build left dp

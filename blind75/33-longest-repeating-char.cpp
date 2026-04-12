@@ -29,13 +29,12 @@ public:
         int n = s.size();
         int l = 0, r = 0, maxlen = 0;
         int mf = 0; // it will store the maximum frequency
-        // traverse the string array with right=0 -> n
+        // traverse the string array with right = 0 -> n
         // store the frequency of each char,
         // check if it forms the valid window , if window size exceeds the value=k
 
         vector<int> freq(26, 0); // assuming the 0 based indexing
-        // A =0, B=1
-
+        
         for (int r = 0; r < n; r++)
         {
             freq[s[r] - 'A']++; //
