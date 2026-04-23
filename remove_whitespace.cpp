@@ -18,6 +18,6 @@ int main()
         getline(cin, str[i]);
     }
 //remove the whitespace
-    //search for the substring
+//search for the substring
     return 0;
 }
