@@ -52,3 +52,6 @@ output/
 *.tar
 *.tar.gz
 *.rar
+
+*tmp*
+*temp*
