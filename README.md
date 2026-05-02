@@ -39,7 +39,7 @@ DSA_CP_Solutions/
 
 1. 📥 Clone the repository:
    ```sh
-   git clone https://github.com/himaenshuu/DSA.git
+   git clone https://github.com/himaenshuu/Data-Structures.git
    ```
 2. 📍 Navigate to the required topic and ▶️ run the solution file.
 
