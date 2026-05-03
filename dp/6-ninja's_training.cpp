@@ -81,14 +81,11 @@ public:
     int fun(int day, int last, vector<vector<int>> &points, vector<vector<int>> dp)
     {
 
-        if (day == 0)
-        {
+        if (day == 0){
             int maxi = 0;
 
-            for (int task = 0; task < 3; task++)
-            {
-                if (task != last)
-                {
+            for (int task = 0; task < 3; task++){
+                if (task != last){
                     maxi = max(maxi, points[0][task]);
                 }
             }
@@ -100,10 +97,8 @@ public:
 
         int maxi = 0;
 
-        for (int task = 0; task < 3; task++)
-        {
-            if (task != last)
-            {
+        for (int task = 0; task < 3; task++){
+            if (task != last){
                 int point = points[day][task] + fun(day - 1, task, points, dp);
                 maxi = max(maxi, point);
             }
