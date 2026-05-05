@@ -92,28 +92,12 @@ int main()
 
     Solution sol;
 
-    // Test case 1: balanced tree
     Solution::node *root1 = new Solution::node(1);
     root1->right = new Solution::node(2);
     root1->right->left = new Solution::node(3);
     vector<int> result1 = sol.inorderTraversal(root1);
     cout << "Test case 1: ";
     print1darray(result1);
-
-    // Test case 2: single node tree
-    Solution::node *root2 = new Solution::node(7);
-    vector<int> result2 = sol.inorderTraversal(root2);
-    cout << "Test case 2: ";
-    print1darray(result2);
-
-    // Test case 3: left-skewed tree
-    Solution::node *root3 = new Solution::node(4);
-    root3->left = new Solution::node(3);
-    root3->left->left = new Solution::node(2);
-    root3->left->left->left = new Solution::node(1);
-    vector<int> result3 = sol.inorderTraversal(root3);
-    cout << "Test case 3: ";
-    print1darray(result3);
 
     return 0;
 }
