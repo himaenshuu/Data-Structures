@@ -25,7 +25,7 @@ Time: O(amount * coins), Space: O(amount).
 using namespace std;
 typedef long long ll;
 #define endl "\n"
-
+ 
 // for the same problem, if coins were not given, we can use the greedy approach
 class Solution
 {
@@ -71,7 +71,7 @@ public:
         vector<int> dp(amount + 1, INT_MAX);
         dp[0] = 0;
 
-        for (int a = 1; a <= amount, a++)
+        for (int a = 1; a <= amount; a++)
         {
             for (int c : coins)
             {

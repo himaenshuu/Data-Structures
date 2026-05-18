@@ -60,7 +60,7 @@ public:
         return vector<vector<int>>(s.begin(), s.end());
     }
 
-    vector<vector<int>> threeSum1(vector<int> nums)
+    vector<vector<int>> threeSum1(vector<int> nums) // O(N^2)
     {
         int n = nums.size();
         sort(nums.begin(), nums.end());
@@ -114,7 +114,7 @@ int main()
     Solution sol;
     vector<int> vect = {-2, 0, 1, 1, 2};
 
-    print2darray(sol.threeSum(vect));
+    print2darray(sol.threeSum1(vect));
     cout << "" << endl;
 
     return 0;

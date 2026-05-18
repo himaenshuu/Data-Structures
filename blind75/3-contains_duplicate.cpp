@@ -41,14 +41,14 @@ public:
 
     bool containsDuplicate1(vector<int> &nums) // O(n)
     {
-        unordered_map<int, int> mp;
+        set<int> st;
         for (int i = 0; i < nums.size(); i++)
         {
-            if (mp.count(nums[i]))
+            if (st.find(nums[i]) != st.end())
             {
                 return true;
             }
-            mp[nums[i]]++;
+            st.insert(nums[i]);
         }
         return false;
     }
@@ -59,7 +59,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     Solution sol;
-    vector<int> vect = {5, 2, 1, 4};
+    vector<int> vect = {5, 2, 1, 1};
     if (sol.containsDuplicate1(vect))
     {
         cout << "True" << endl;
