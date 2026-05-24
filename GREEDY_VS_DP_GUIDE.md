@@ -22,6 +22,7 @@ Does the problem ask for:
 ## GREEDY - Use When:
 
 ### ✅ Green Flags for Greedy:
+
 1. **"Maximize/Minimize count"** - Assign, select, or schedule items
 2. **Greedy Choice Property** - Making the best local choice leads to global optimum
 3. **No "regret" later** - Once you make a choice, you never need to undo it
@@ -29,21 +30,22 @@ Does the problem ask for:
 
 ### 📌 Classic Greedy Problems:
 
-| Problem | Approach |
-|---------|----------|
-| **Assign Cookies** | Sort both arrays, match smallest with smallest |
-| **Activity Selection** | Sort by end time, pick earliest ending activities |
-| **Jump Game** | Greedy jump to farthest reachable position |
-| **Gas Station** | Greedy try each starting point |
-| **Interval Scheduling** | Sort by end time, pick non-overlapping |
-| **Coin Change (fewest coins)** | Greedy pick largest coin first |
-| **Meeting Rooms** | Sort by start/end time |
+| Problem                                                                                | Approach                                          |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| **Assign Cookies**                                                               | Sort both arrays, match smallest with smallest    |
+| **Activity Selection**                                                           | Sort by end time, pick earliest ending activities |
+| **Jump Game**                                                                    | Greedy jump to farthest reachable position        |
+| **Gas Station**                                                                  | Greedy try each starting point                    |
+| **Interval Scheduling**                                                          | Sort by end time, pick non-overlapping            |
+| **Coin Change <br />(when all the consecutive <br />possible coins are given)** | Greedy pick largest coin first                    |
+| **Meeting Rooms**                                                                | Sort by start/end time                            |
 
 ---
 
 ## DYNAMIC PROGRAMMING - Use When:
 
 ### ✅ Green Flags for DP:
+
 1. **"Find max/min/count of ways"** - with dependencies on previous states
 2. **Optimal Substructure** - Best solution uses best solutions of subproblems
 3. **Overlapping Subproblems** - Same calculations repeat
@@ -52,33 +54,34 @@ Does the problem ask for:
 
 ### 📌 Classic DP Problems:
 
-| Problem | Why DP? |
-|---------|---------|
-| **Coin Change (exact amount)** | Must try ALL combinations of coins |
-| **Fibonacci** | fib(n) = fib(n-1) + fib(n-2) (overlapping) |
-| **0/1 Knapsack** | Each item's inclusion depends on capacity |
+| Problem                                  | Why DP?                                           |
+| ---------------------------------------- | ------------------------------------------------- |
+| **Coin Change (exact amount)**     | Must try ALL combinations of coins                |
+| **Fibonacci**                      | fib(n) = fib(n-1) + fib(n-2) (overlapping)        |
+| **0/1 Knapsack**                   | Each item's inclusion depends on capacity         |
 | **Longest Increasing Subsequence** | Best LIS ending at i depends on previous elements |
-| **House Robber** | Rob(i) = max(Rob(i-1), Rob(i-2) + house[i]) |
-| **Word Break** | Can word[0..i] be formed from dictionary? |
-| **Edit Distance** | Matching characters affects future choices |
+| **House Robber**                   | Rob(i) = max(Rob(i-1), Rob(i-2) + house[i])       |
+| **Word Break**                     | Can word[0..i] be formed from dictionary?         |
+| **Edit Distance**                  | Matching characters affects future choices        |
 
 ---
 
 ## Side-by-Side Comparison
 
-| Aspect | Greedy | DP |
-|--------|--------|-----|
-| **Decision** | Make best choice NOW | Try ALL choices, remember best |
-| **Reconsider?** | Never | Yes (memoization) |
-| **Time** | O(n log n) usually | O(n²) or worse |
-| **Space** | O(1) usually | O(n) for memoization |
-| **Correctness** | ⚠️ Risky, needs proof | ✅ Usually safe |
+| Aspect                | Greedy                  | DP                             |
+| --------------------- | ----------------------- | ------------------------------ |
+| **Decision**    | Make best choice NOW    | Try ALL choices, remember best |
+| **Reconsider?** | Never                   | Yes (memoization)              |
+| **Time**        | O(n log n) usually      | O(n²) or worse                |
+| **Space**       | O(1) usually            | O(n) for memoization           |
+| **Correctness** | ⚠️ Risky, needs proof | ✅ Usually safe                |
 
 ---
 
 ## Real Examples
 
 ### ❌ Why Coin Change Can't Be Greedy:
+
 ```
 coins = [3, 4], amount = 6
 Greedy: Pick 4 first → 4 + 3 = 7 (FAIL)
@@ -86,6 +89,7 @@ DP: Try both → 3 + 3 = 6 (SUCCESS)
 ```
 
 ### ✅ Why Assign Cookies IS Greedy:
+
 ```
 g = [1,2,3], s = [1,1,3]
 Greedy works: Match smallest greed with smallest cookie
@@ -100,20 +104,21 @@ Greedy works: Match smallest greed with smallest cookie
 ## How to Decide in an Interview
 
 1. **Read the problem carefully**
+
    - "Find minimum operations" → Usually DP
    - "Maximize selection" → Usually Greedy
-
 2. **Try Greedy first** (it's easier)
+
    - Sort the input
    - Make obvious local choices
    - Does it work on examples?
-
 3. **If Greedy fails**, switch to DP
+
    - Define state: `dp[i]` = best solution for i
    - Write recurrence: `dp[i] = f(dp[i-1], dp[i-2], ...)`
    - Use memoization or tabulation
-
 4. **Test edge cases**
+
    - Single element
    - All same values
    - Reversed order
@@ -123,11 +128,13 @@ Greedy works: Match smallest greed with smallest cookie
 ## Time Complexity Comparison
 
 ### Greedy Problems
+
 - **Assign Cookies**: O(n log n + m log m)
 - **Activity Selection**: O(n log n)
 - **Jump Game**: O(n)
 
 ### DP Problems
+
 - **Fibonacci**: O(n) with memoization
 - **0/1 Knapsack**: O(n × W) where W is capacity
 - **Longest Increasing Subsequence**: O(n²) or O(n log n)
@@ -137,14 +144,14 @@ Greedy works: Match smallest greed with smallest cookie
 
 ## Key Takeaways
 
-| When | Use This |
-|------|----------|
-| Need to **select** items to maximize/minimize something | **Greedy** |
-| Need to **count** ways or find **optimal dependency** | **DP** |
-| Problem has **greedy choice property** | **Greedy** |
-| Problem can be **divided into overlapping subproblems** | **DP** |
-| Solution builds on **previous decisions** | **DP** |
-| **Sorting helps** and order doesn't change optimality | **Greedy** |
+| When                                                             | Use This         |
+| ---------------------------------------------------------------- | ---------------- |
+| Need to**select** items to maximize/minimize something     | **Greedy** |
+| Need to**count** ways or find **optimal dependency** | **DP**     |
+| Problem has**greedy choice property**                      | **Greedy** |
+| Problem can be**divided into overlapping subproblems**     | **DP**     |
+| Solution builds on**previous decisions**                   | **DP**     |
+| **Sorting helps** and order doesn't change optimality      | **Greedy** |
 
 ---
 
@@ -171,14 +178,17 @@ START
 ## Common Mistakes
 
 ### ❌ Mistake 1: Using Greedy When DP is Needed
+
 - **Example**: Coin Change problem
 - **Fix**: Check if greedy works on all test cases first
 
 ### ❌ Mistake 2: Using DP When Greedy is Sufficient
+
 - **Example**: Activity Selection
 - **Fix**: Look for greedy choice property
 
 ### ❌ Mistake 3: Wrong Loop Condition (Common Bug)
+
 ```cpp
 // WRONG
 for (int i = 0; i < v2.size(), j < value.size(); i++)
@@ -194,6 +204,7 @@ The comma operator evaluates the left side, discards it, and uses the right side
 ---
 
 ## References
+
 - LeetCode Problem Tags: Greedy, Dynamic Programming
 - GeeksforGeeks: Greedy Algorithm
 - LeetCode Editorial Solutions

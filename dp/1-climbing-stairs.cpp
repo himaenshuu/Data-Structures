@@ -37,7 +37,7 @@ typedef long long ll;
 class Solution
 {
 public:
-    int findSteps(int n, vector<int> &dp)
+    int recur(int n, vector<int> &dp)
     {
         if (n <= 1) // dp[0] = 1, bcoz the number of ways to climb 0 stairs is 1 way only.
             return 1;
@@ -45,7 +45,28 @@ public:
         if (dp[n] != -1)
             return dp[n];
 
-        return dp[n] = findSteps(n - 1, dp) + findSteps(n - 2, dp);
+        return dp[n] = recur(n - 1, dp) + recur(n - 2, dp);
+    }
+
+    // memoization - top down - recursion
+    int findSteps1(int n)
+    {
+        vector<int> dp(n + 1, -1);
+        return recur(n, dp);
+    }
+
+    // tabulation - bottom up - iteration
+    int findSteps2(int n)
+    {
+        vector<int> dp(n + 1, -1);
+        // base case
+        dp[0] = dp[1] = 1;
+
+        for (int i = 2; i <= n; i++)
+        {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
     }
 };
 
@@ -53,10 +74,10 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n = 4;
-    vector<int> dp(n + 1, -1);
+    int n = 3;
     Solution sol;
-    cout << sol.findSteps(n, dp) << endl;
+    cout << sol.findSteps1(n) << " //using recursion"<<endl;
+    cout << sol.findSteps2(n) << " //using tabulaton" << endl;
 
     return 0;
 }

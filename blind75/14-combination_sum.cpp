@@ -71,7 +71,8 @@ Space Complexity: O(target) - recursion depth
 */
 
 #include <bits/stdc++.h>
-#include "utilities.h"; using namespace std;
+#include "../utilities.h"
+using namespace std;
 typedef long long ll;
 #define endl "\n"
 
@@ -119,8 +120,8 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    vector<int> vect = {2, 3, 6, 7};
-    int target = 7;
+    vector<int> vect = {2, 5, 6, 7};
+    int target = 45;
     Solution sol;
     vector<vector<int>> v = sol.combinationSum(vect, target);
     print2darray(v);
