@@ -1,3 +1,9 @@
+// LeetCode: https://leetcode.com/problems/subtree-of-another-tree/
+// Problem Statement: Check whether subRoot is a subtree of root with the same structure and node values.
+// Optimal Approach: Serialize both trees using preorder with null markers, then check whether subRoot serialization exists inside root serialization.
+// Time Complexity: O(n + m)
+// Space Complexity: O(n + m)
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;
@@ -51,7 +57,20 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << "" << endl;
+
+    TreeNode *root = new TreeNode(3);
+    root->left = new TreeNode(4);
+    root->right = new TreeNode(5);
+    root->left->left = new TreeNode(1);
+    root->left->right = new TreeNode(2);
+
+    TreeNode *subRoot = new TreeNode(4);
+    subRoot->left = new TreeNode(1);
+    subRoot->right = new TreeNode(2);
+
+    Solution sol;
+    cout << "Expected: true" << endl;
+    cout << "Actual: " << boolalpha << sol.isSubtree(root, subRoot) << endl;
 
     return 0;
 }

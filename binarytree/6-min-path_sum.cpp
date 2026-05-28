@@ -1,3 +1,9 @@
+// LeetCode: https://leetcode.com/problems/binary-tree-maximum-path-sum/
+// Problem Statement: Find the maximum path sum in a binary tree, where a path can start and end at any node.
+// Optimal Approach: Use postorder DFS, return the best one-side gain to parent, and update a global answer with left + node + right.
+// Time Complexity: O(n)
+// Space Complexity: O(h)
+
 #include <bits/stdc++.h>
 #include "../utilities.h"
 using namespace std;
@@ -40,7 +46,16 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << "" << endl;
+
+    TreeNode *root = new TreeNode(-10);
+    root->left = new TreeNode(9);
+    root->right = new TreeNode(20);
+    root->right->left = new TreeNode(15);
+    root->right->right = new TreeNode(7);
+
+    Solution sol;
+    cout << "Expected: 42" << endl;
+    cout << "Actual: " << sol.maxPathSum(root) << endl;
 
     return 0;
 }

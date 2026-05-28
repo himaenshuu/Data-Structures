@@ -1,3 +1,9 @@
+// LeetCode: https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
+// Problem Statement: Convert a binary tree into a string and rebuild the exact same tree from that string.
+// Optimal Approach: Use level-order traversal with null markers for serialization, then rebuild nodes in queue order.
+// Time Complexity: O(n)
+// Space Complexity: O(n)
+
 #include <bits/stdc++.h>
 #include "utilities.h"
 using namespace std;
@@ -116,7 +122,20 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout << "" << endl;
+
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    root->right->left = new TreeNode(4);
+    root->right->right = new TreeNode(5);
+
+    Codec codec;
+    string data = codec.serialize(root);
+    TreeNode *copy = codec.deserialize(data);
+
+    cout << "Serialized: " << data << endl;
+    cout << "Expected root after deserialize: 1" << endl;
+    cout << "Actual root after deserialize: " << copy->val << endl;
 
     return 0;
 }
