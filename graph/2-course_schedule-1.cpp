@@ -18,10 +18,19 @@
  * Output: true (take course 0 first, then course 1)
  *
  * APPROACH:
- * Algorithm: Topological Sort using Kahn's Algorithm (BFS) / Cycle Detection
+ * This problem can be solved by detecting a cycle in a directed graph.
+ *
+ * Approach 1: Topological Sort using Kahn's Algorithm (BFS)
  * Strategy: Build directed graph with indegree array. Add all courses with
  *           indegree 0 to queue. Process courses, decrement indegrees of
  *           neighbors. If all courses are processed, no cycle exists.
+ *
+ * Approach 2: DFS Cycle Detection
+ * Strategy: Build directed graph from prerequisite to course. Use a visited
+ *           state array where 0 means unvisited, 1 means currently in the DFS
+ *           path, and 2 means fully processed. If DFS reaches a node with
+ *           state 1, a cycle exists, so all courses cannot be completed.
+ *           If every node is processed without finding a cycle, return true.
  *
  * COMPLEXITY ANALYSIS:
  * Time Complexity: O(V + E) - Visit all vertices and edges once
@@ -96,8 +105,59 @@ public:
         }
         return completed == numCourses;
     }
+
+    bool dfs(int course, vector<vector<int>> &adj, vector<int> &visited)
+    {
+        if (visited[course] == 1)
+        {
+            return false; 
+        }
+        if (visited[course] == 2)
+        {
+            return true; // means loop found, we have reached same node again
+        }
+
+        visited[course] = 1;
+
+        for (int next : adj[course])
+        {
+            if (!dfs(next, adj, visited))
+            {
+                return false;
+            }
+        }
+
+        visited[course] = 2;
+        return true;
+    }
+
+    bool canFinish2(int numCourses, vector<vector<int>> &prerequisites)
+    {
+        vector<vector<int>> adj(numCourses); //adjacency matrix
+        vector<int> visited(numCourses, 0);//courses is starting from 0 so we took so
+
+        // Build graph from; prerequisite course to dependent course
+        for (auto p : prerequisites)
+        {
+            int course = p[0];
+            int prereq = p[1];
+            adj[prereq].push_back(course);
+        }
+
+        // 0 = not visited, 1 = current DFS path, 2 = fully processed
+        for (int i = 0; i < numCourses; i++)
+        {
+            if (visited[i] == 0 && !dfs(i, adj, visited)) // if a node is visited skip it
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 };
 // T.c = O(V+E)
+// canFinish2 T.c = O(V+E), S.c = O(V+E)
 
 int main()
 {
@@ -106,7 +166,7 @@ int main()
     Solution sol;
     int n = 2;
     vector<vector<int>> vect = {{1, 0}};
-    if (sol.canFinish(n, vect) == true)
+    if (sol.canFinish2(n, vect) == true)
     {
         cout << "True" << endl;
     }
