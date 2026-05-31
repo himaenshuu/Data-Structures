@@ -77,7 +77,7 @@ int main()
     graph.resize(n);
     visited.assign(n, false);
 
-    // creating a sample graph
+    // creating a sample graph : adjacency list
     graph[0] = {1, 2};
     graph[1] = {3, 4};
     graph[2] = {5};

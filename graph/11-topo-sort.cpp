@@ -61,14 +61,14 @@ typedef long long ll;
 class Solution
 {
 public:
-    void dfs(int node, vector<int> &vis, stack<int> &st, vector<vector<int>> &edges)
+    void dfs(int node, vector<int> &visited, stack<int> &st, vector<vector<int>> &edges)
     {
-        vis[node] = 1;
+        visited[node] = 1;
         for (auto it : edges[node])
         {
-            if (!vis[it])
+            if (!visited[it])
             {
-                dfs(it, vis, st, edges);
+                dfs(it, visited, st, edges);
             }
         }
         st.push(node);
@@ -76,14 +76,14 @@ public:
 
     vector<int> topoSort(int V, vector<vector<int>> &edges)
     {
-        vector<int> vis(V, 0);
+        vector<int> visited(V, 0);
         stack<int> st;
 
         for (int i = 0; i < V; i++)
         {
-            if (!vis[i])
+            if (!visited[i])
             {
-                dfs(i, vis, st, edges);
+                dfs(i, visited, st, edges);
             }
         }
 

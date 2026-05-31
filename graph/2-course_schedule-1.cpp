@@ -108,35 +108,35 @@ public:
 
     bool dfs(int course, vector<vector<int>> &adj, vector<int> &visited)
     {
-        if (visited[course] == 1)
+        if (visited[course] == 1) // reached the node which is still in dfs
         {
-            return false; 
+            return true; // true- loop exist
         }
-        if (visited[course] == 2)
+        if (visited[course] == 2) // means already fully processed
         {
-            return true; // means loop found, we have reached same node again
+            return false; // false-loop does not exit
         }
 
         visited[course] = 1;
 
         for (int next : adj[course])
         {
-            if (!dfs(next, adj, visited))
+            if (dfs(next, adj, visited, order))
             {
-                return false;
+                return true;
             }
         }
 
         visited[course] = 2;
-        return true;
+        return false;
     }
 
     bool canFinish2(int numCourses, vector<vector<int>> &prerequisites)
     {
-        vector<vector<int>> adj(numCourses); //adjacency matrix
-        vector<int> visited(numCourses, 0);//courses is starting from 0 so we took so
+        vector<vector<int>> adj(numCourses); // adjacency list
+        vector<int> visited(numCourses, 0);  // courses is starting from 0 so we took so
 
-        // Build graph from; prerequisite course to dependent course
+        // Build adjacency list from; prerequisite course to dependent course
         for (auto p : prerequisites)
         {
             int course = p[0];
@@ -147,7 +147,7 @@ public:
         // 0 = not visited, 1 = current DFS path, 2 = fully processed
         for (int i = 0; i < numCourses; i++)
         {
-            if (visited[i] == 0 && !dfs(i, adj, visited)) // if a node is visited skip it
+            if (visited[i] == 0 && dfs(i, adj, visited)) // if a node is visited skip it
             {
                 return false;
             }

@@ -116,28 +116,28 @@ public:
 
     bool dfs(int course, vector<vector<int>> &adj, vector<int> &visited, vector<int> &order)
     {
-        if (visited[course] == 1)
+        if (visited[course] == 1) // reached the node which is still in dfs
         {
-            return false;
+            return true; //true- loop exist
         }
-        if (visited[course] == 2)
+        if (visited[course] == 2) // means already fully processed
         {
-            return true;
+            return false; //false-loop does not exit
         }
 
         visited[course] = 1;
 
         for (int next : adj[course])
         {
-            if (!dfs(next, adj, visited, order))
+            if (dfs(next, adj, visited, order))
             {
-                return false;
+                return true;
             }
         }
 
         visited[course] = 2;
         order.push_back(course);
-        return true;
+        return false;
     }
 
     vector<int> findOrder2(int numCourses, vector<vector<int>> &prerequisites)
@@ -157,7 +157,7 @@ public:
         // 0 = not visited, 1 = current DFS path, 2 = fully processed
         for (int i = 0; i < numCourses; i++)
         {
-            if (visited[i] == 0 && !dfs(i, adj, visited, order))
+            if (visited[i] == 0 && dfs(i, adj, visited, order))
             {
                 return {};
             }
